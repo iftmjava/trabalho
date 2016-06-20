@@ -62,7 +62,7 @@ public class ArtigoDAO implements DAO<Artigo>{
          x.setResumo(a.getResumo());
          x.setAvaliador(a.getAvaliador());
          x.setNumAvaliadores(a.getNumAvaliadores());
-         accountDao.update(a);
+         accountDao.update(x);
        
          
     }
@@ -73,8 +73,6 @@ public class ArtigoDAO implements DAO<Artigo>{
             DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Artigo.class);
         
         List<Artigo> Artigos = DADAO.queryForAll();
-        
-        
         
 		return Artigos;
          

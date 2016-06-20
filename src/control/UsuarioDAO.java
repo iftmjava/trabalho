@@ -31,7 +31,7 @@ public class UsuarioDAO implements DAO<Usuarios>{
         z.setNome(a.getNome());
         z.setCpf(a.getCpf());
         z.setTipo(a.getTipo());
-        accountDao.create(a);
+        accountDao.create(z);
     }
 
     @Override

@@ -57,7 +57,7 @@ public class EventoDAO implements DAO<Evento> {
         y.setLimiteArtigos(a.getLimiteArtigos());
         y.setPeriodoEvento(a.getPeriodoEvento());
         y.setnArtigosAceitos(a.getnArtigosAceitos());
-        accountDao.update(a);
+        accountDao.update(y);
     }
 
     @Override
@@ -67,24 +67,6 @@ public class EventoDAO implements DAO<Evento> {
         
         List<Evento> Eventos = DADAO.queryForAll();
         
-        /*List<Evento> Eventos = new ArrayList<>();
-            try { PreparedStatement stmt;
-                    stmt = connection.prepareStatement("select * from Eventos");
-                    // executa um select
-                    ResultSet rs = stmt.executeQuery();
-                    // itera no resultSet
-                    while (rs.next()) {
-                        int id = rs.getInt("Id");
-                        String nome = rs.getString("nome");
-                        Evento evento = new Evento();
-                        evento.setId(id);
-                        evento.setNome(nome);
-                    }
-                    rs.close();
-                    stmt.close();
-                 } catch (SQLException e) {
-                     e.printStackTrace();
-                 }*/
             return Eventos;
     }
 }
