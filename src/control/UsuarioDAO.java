@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import view.Menu;
+
 import javax.swing.JOptionPane;
 
 public class UsuarioDAO implements DAO<Usuarios>{
@@ -57,25 +57,11 @@ public class UsuarioDAO implements DAO<Usuarios>{
 
     @Override
     public List<Usuarios> listar(Usuarios a) throws SQLException {
-        List<Usuarios> Usuarios = new ArrayList<>();
-            try {   PreparedStatement stmt;
-                    stmt = connection.prepareStatement("select * from Usuarios");
-                    // executa um select
-                    ResultSet rs = stmt.executeQuery();
-                    // itera no ResultSet
-                    while (rs.next()) {
-                        int id = rs.getInt("Id");
-                        String nome = rs.getString("nome");
-                        Usuarios usuarios = new Usuarios();
-                        usuarios.setId(id);
-                        usuarios.setNome(nome);
-                        
-                    }
-                    rs.close();
-                    stmt.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+       Dao<Usuarios, String> DADAO =
+            DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Usuarios.class);
+        
+        List<Usuarios> Usuarios = DADAO.queryForAll();
+        
             return Usuarios;
     }
  

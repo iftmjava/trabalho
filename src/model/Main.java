@@ -5,7 +5,6 @@ import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import control.Artigo;
-import view.Menu;
 import javax.swing.JOptionPane;
 import control.ArtigoDAO;
 import control.CRUD;

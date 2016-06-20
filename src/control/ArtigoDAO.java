@@ -69,27 +69,13 @@ public class ArtigoDAO implements DAO<Artigo>{
 
     @Override
     public List<Artigo> listar(Artigo a) throws SQLException{
-        List<Artigo> Artigos = new ArrayList<>();
-		try {   PreparedStatement stmt;
-			stmt = connection.prepareStatement("select * from Artigos");
-			// executa um select
-			ResultSet rs = stmt.executeQuery();
-			// itera no ResultSet
-			while (rs.next()) {                      
-				int id = rs.getInt("IdArtigo");
-				String nome = rs.getString("nome");
-
-				Artigo artigo = new Artigo();
-				artigo.setIdArtigo(id);
-				artigo.setNome(nome);
-				
-			}
-			rs.close();
-			stmt.close();
-		} catch (SQLException e) {
-                       e.printStackTrace();
-                        
-		}
+     Dao<Artigo, String> DADAO =
+            DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Artigo.class);
+        
+        List<Artigo> Artigos = DADAO.queryForAll();
+        
+        
+        
 		return Artigos;
          
          

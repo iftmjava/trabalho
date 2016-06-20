@@ -62,7 +62,12 @@ public class EventoDAO implements DAO<Evento> {
 
     @Override
     public List<Evento> listar(Evento a) throws SQLException {
-        List<Evento> Eventos = new ArrayList<>();
+        Dao<Evento, String> DADAO =
+            DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Evento.class);
+        
+        List<Evento> Eventos = DADAO.queryForAll();
+        
+        /*List<Evento> Eventos = new ArrayList<>();
             try { PreparedStatement stmt;
                     stmt = connection.prepareStatement("select * from Eventos");
                     // executa um select
@@ -79,7 +84,7 @@ public class EventoDAO implements DAO<Evento> {
                     stmt.close();
                  } catch (SQLException e) {
                      e.printStackTrace();
-                 }
+                 }*/
             return Eventos;
     }
 }
