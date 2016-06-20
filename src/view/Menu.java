@@ -6,7 +6,7 @@ import control.UsuarioDAO;
 public class Menu {
 
     //Metodos do Menu
-    public int menuLogin() {
+    public int menuLogin() {//SDHUASGDHUIAHSDUIHAOUISHDUIAOHDUIAHSDIOUHASIOHDHSAUIDOHAUOSHDUAOHSuidoh
         // Util.gm({"Z","T"}, msg, titulo);
         return Util.gm(new String[]{"LOGIN", "CADASTRO", "SAIR"}, "O QUE DESEJA FAZER", "MENU LOGIN");
     }
