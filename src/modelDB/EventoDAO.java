@@ -27,12 +27,8 @@ public class EventoDAO implements DAO<Evento> {
         Evento y = new Evento();
         y.setNome(a.getNome());
         y.setArea(a.getArea());
-        y.setData(a.getData());
-        y.setDataLimite(a.getData());
         y.setEdicao(a.getEdicao());
-        y.setEventoCriado(a.getEventoCriado());
         y.setLimiteArtigos(a.getLimiteArtigos());
-        y.setPeriodoEvento(a.getPeriodoEvento());
         y.setnArtigosAceitos(a.getnArtigosAceitos());
         accountDao.create(a);
     }
@@ -52,12 +48,8 @@ public class EventoDAO implements DAO<Evento> {
         Evento y = new Evento();
         y.setNome(a.getNome());
         y.setArea(a.getArea());
-        y.setData(a.getData());
-        y.setDataLimite(a.getData());
         y.setEdicao(a.getEdicao());
-        y.setEventoCriado(a.getEventoCriado());
         y.setLimiteArtigos(a.getLimiteArtigos());
-        y.setPeriodoEvento(a.getPeriodoEvento());
         y.setnArtigosAceitos(a.getnArtigosAceitos());
         accountDao.update(y);
     }
