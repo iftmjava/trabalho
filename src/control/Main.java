@@ -16,11 +16,10 @@ import java.util.logging.Logger;
 import model.Artigo;
 import modelDB.ArtigoDAO;
 import model.Usuarios;
+import view.Menu2;
 
 public class Main {
-  public static UsuarioDAO usuario = new UsuarioDAO();
-  
-  
+
     public Main() throws SQLException {
         
          Connection c = SQLITE.conectar("test");
@@ -44,8 +43,8 @@ public class Main {
     }
 
     public static void main(String[] args) throws SQLException {
-
- 
+        
+        
     }
 
 }
