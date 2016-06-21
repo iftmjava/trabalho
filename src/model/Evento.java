@@ -1,4 +1,4 @@
-package control;
+package model;
 
 import java.time.LocalDate;
 import com.j256.ormlite.field.DatabaseField;

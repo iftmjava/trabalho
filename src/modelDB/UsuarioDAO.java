@@ -1,8 +1,10 @@
-package control;
+package modelDB;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
+import control.ConnectionFactory;
+import model.Usuarios;
 import java.sql.ResultSet;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

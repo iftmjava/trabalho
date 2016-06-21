@@ -1,14 +1,17 @@
-package control;
+package modelDB;
 
+import modelDB.DAO;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
+import control.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.Artigo;
 
 
 public class ArtigoDAO implements DAO<Artigo>{
