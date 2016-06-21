@@ -24,19 +24,12 @@ public class EventoDAO implements DAO<Evento> {
     public void insert(Evento a) throws SQLException {
         Dao<Evento, String> accountDao =
             DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Evento.class);
-        Evento y = new Evento();
-        y.setNome(a.getNome());
-        y.setArea(a.getArea());
-        y.setEdicao(a.getEdicao());
-        y.setLimiteArtigos(a.getLimiteArtigos());
-        y.setnArtigosAceitos(a.getnArtigosAceitos());
         accountDao.create(a);
     }
 
     @Override
     public void delete(Evento a) throws SQLException {
-        Dao<Evento, String> accountDao =
-            DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Evento.class);
+        
     a.getId();
     accountDao.delete(a);
     }
