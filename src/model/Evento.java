@@ -1,15 +1,20 @@
 package model;
 
-import java.time.LocalDate;
+
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+import java.time.LocalDate;
 
 @DatabaseTable(tableName = "eventos")
 public class Evento {
+    @DatabaseField(id = true)
+    private int id;
     @DatabaseField
     private String nome;
     @DatabaseField
-    private LocalDate data;
+    private LocalDate data_criacao;
+    @DatabaseField
+    private LocalDate data_limite;
     @DatabaseField
     private int edicao;
     @DatabaseField
@@ -17,43 +22,38 @@ public class Evento {
     @DatabaseField
     private int nArtigosAceitos;
     @DatabaseField
-    private int periodoEvento;
-    @DatabaseField
-    private LocalDate dataLimite;
-    @DatabaseField(id = true)
-    private int id = 0;
-    @DatabaseField
     private int limiteArtigos;
-    @DatabaseField
-    private boolean eventoCriado = false;
 
-    public boolean isEventoCriado() {
-        return eventoCriado;
+    public int getId() {
+        return id;
     }
 
-    //Metodos do Evento
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getNome() {
         return nome;
-    }
-
-    public boolean getEventoCriado() {
-        return eventoCriado;
-    }
-
-    public void setEventoCriado(boolean eventoCriado) {
-        this.eventoCriado = eventoCriado;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public LocalDate getData() {
-        return data;
+    public LocalDate getData_criacao() {
+        return data_criacao;
     }
 
-    public void setData(LocalDate data) {
-        this.data = data;
+    public void setData_criacao(LocalDate data_criacao) {
+        this.data_criacao = data_criacao;
+    }
+
+    public LocalDate getData_limite() {
+        return data_limite;
+    }
+
+    public void setData_limite(LocalDate data_limite) {
+        this.data_limite = data_limite;
     }
 
     public int getEdicao() {
@@ -78,30 +78,6 @@ public class Evento {
 
     public void setnArtigosAceitos(int nArtigosAceitos) {
         this.nArtigosAceitos = nArtigosAceitos;
-    }
-
-    public int getPeriodoEvento() {
-        return periodoEvento;
-    }
-
-    public void setPeriodoEvento(int periodoEvento) {
-        this.periodoEvento = periodoEvento;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public LocalDate getDataLimite() {
-        return dataLimite;
-    }
-
-    public void setDataLimite(LocalDate dataLimite) {
-        this.dataLimite = dataLimite;
     }
 
     public int getLimiteArtigos() {

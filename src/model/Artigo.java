@@ -13,104 +13,14 @@ public class Artigo {
     private String area;
     @DatabaseField
     private String Resumo;
-    @DatabaseField
-    private boolean aceito = false; //valida artigo
-    @DatabaseField
-    private int idUser;
     @DatabaseField(id = true)
-    private static int idArtigo = 0;
+    private static int id = 0;
     @DatabaseField
     private Usuarios avaliador;
     @DatabaseField
-    private double avaliacaoLin = 0;
+    private String comentario;
     @DatabaseField
-    private double avaliacaoQual = 0;
-    @DatabaseField
-    private double avaliacaoOrg = 0;
-    @DatabaseField
-    private int numAvaliadores = 0;
-    @DatabaseField
-    private String comentario = "";
-    @DatabaseField
-    private boolean validacao = false;
-    
-    
-    public Artigo() {
-        idArtigo ++;
-    }
-    //Metodos do Artigo
-    public boolean isValidacao() {
-        return validacao;
-    }
-
-    public void setValidacao(boolean validacao) {
-        this.validacao = validacao;
-    }
-
-    public String getComentario() {
-        return comentario;
-    }
-
-    public void setComentario(String comentario) {
-        this.comentario += comentario;
-    }
-
-    public double getAvaliacaoLin() {
-        return avaliacaoLin;
-    }
-    
-     public Usuarios getAvaliador() {
-        return avaliador;
-    }
-
-    public void setAvaliador(Usuarios avaliador) {
-        this.avaliador = avaliador;
-    }
-
-    public void setAvaliacaoLin(double avaliacaoLin) {
-        this.avaliacaoLin += avaliacaoLin;
-    }
-
-    public double getAvaliacaoQual() {
-        return avaliacaoQual;
-    }
-
-    public void setAvaliacaoQual(double avaliacaoQual) {
-        this.avaliacaoQual += avaliacaoQual;
-    }
-
-    public double getAvaliacaoOrg() {
-        return avaliacaoOrg;
-    }
-
-    public void setAvaliacaoOrg(double avaliacaoOrg) {
-        this.avaliacaoOrg += avaliacaoOrg;
-    }
-
-    public int getNumAvaliadores() {
-        return numAvaliadores;
-    }
-
-    public void setNumAvaliadores(int numAvaliadores) {
-        this.numAvaliadores += numAvaliadores;
-    }
-
-   
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
-    }
-
-    public void setIdArtigo(int idArtigo) {
-        this.idArtigo = idArtigo;
-    }
-
-    public int getIdUser() {
-        return idUser;
-    }
-
-    public int getIdArtigo() {
-        return idArtigo;
-    }
+    private boolean aprovado = false;
 
     public String getNome() {
         return nome;
@@ -124,9 +34,9 @@ public class Artigo {
         return autor;
     }
 
-    public void setAutor(Usuarios autores) {
-        this.autor = autores;
-   }
+    public void setAutor(Usuarios autor) {
+        this.autor = autor;
+    }
 
     public String getArea() {
         return area;
@@ -144,11 +54,37 @@ public class Artigo {
         this.Resumo = Resumo;
     }
 
-    public boolean getAceito() {
-        return aceito;
+    public static int getId() {
+        return id;
     }
 
-    public void setAceito(boolean aceito) {
-        this.aceito = aceito;
+    public static void setId(int id) {
+        Artigo.id = id;
     }
+
+    public Usuarios getAvaliador() {
+        return avaliador;
+    }
+
+    public void setAvaliador(Usuarios avaliador) {
+        this.avaliador = avaliador;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+
+    public boolean isAprovado() {
+        return aprovado;
+    }
+
+    public void setAprovado(boolean aprovado) {
+        this.aprovado = aprovado;
+    }
+    
+    
 }

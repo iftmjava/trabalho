@@ -15,7 +15,7 @@ public class Usuarios {
     @DatabaseField
     private String cpf;
     @DatabaseField
-    private int tipo = 1; // tipo um seria o autor.
+    private int tipo;
     @DatabaseField(id = true)
     private int id;
 

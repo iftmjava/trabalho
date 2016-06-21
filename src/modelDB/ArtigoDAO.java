@@ -33,11 +33,9 @@ public class ArtigoDAO implements DAO<Artigo>{
          x.setNome(a.getNome());
          x.setArea(a.getArea());
          x.setAutor(a.getAutor());
-         x.setAceito(a.getAceito());
          x.setComentario(a.getComentario());
          x.setResumo(a.getResumo());
          x.setAvaliador(a.getAvaliador());
-         x.setNumAvaliadores(a.getNumAvaliadores());
          accountDao.create(a);
          
        }
@@ -46,7 +44,7 @@ public class ArtigoDAO implements DAO<Artigo>{
     public void delete(Artigo a) throws SQLException{
     Dao<Artigo, String> accountDao =
             DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Artigo.class);
-    a.getIdArtigo();
+    a.getId();
     accountDao.delete(a);
     
        
@@ -60,11 +58,9 @@ public class ArtigoDAO implements DAO<Artigo>{
          x.setNome(a.getNome());
          x.setArea(a.getArea());
          x.setAutor(a.getAutor());
-         x.setAceito(a.getAceito());
          x.setComentario(a.getComentario());
          x.setResumo(a.getResumo());
          x.setAvaliador(a.getAvaliador());
-         x.setNumAvaliadores(a.getNumAvaliadores());
          accountDao.update(x);
        
          
