@@ -151,8 +151,12 @@ public class MenuChair extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                new MenuChair().setVisible(true);
+                MenuChair menu = new MenuChair();
+                menu.setVisible(true);
+                menu.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                menu.setLocationRelativeTo(null);
             }
         });
     }
