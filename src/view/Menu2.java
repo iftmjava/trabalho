@@ -56,7 +56,7 @@ public class Menu2 extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("(c) 2016 - Aula chata");
+        jLabel3.setText("(c) 2016 - Aula Java");
 
         BotaoRegistrar.setText("Registrar");
         BotaoRegistrar.addActionListener(new java.awt.event.ActionListener() {

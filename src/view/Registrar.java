@@ -38,10 +38,8 @@ public class Registrar extends javax.swing.JDialog {
         LoginText = new javax.swing.JTextField();
         NomeText = new javax.swing.JTextField();
         SenhaText = new javax.swing.JPasswordField();
-        ChairButton = new javax.swing.JRadioButton();
-        AutorButton = new javax.swing.JRadioButton();
-        AvaliadorButton = new javax.swing.JRadioButton();
         SaveButton = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela Registro Usuario");
@@ -73,23 +71,15 @@ public class Registrar extends javax.swing.JDialog {
             }
         });
 
-        ChairButton.setText("CHAIR");
-
-        AutorButton.setText("Autor");
-        AutorButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AutorButtonActionPerformed(evt);
-            }
-        });
-
-        AvaliadorButton.setText("Avaliador");
-
         SaveButton.setText("Salvar");
         SaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SaveButtonActionPerformed(evt);
             }
         });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Autor", "Avaliador", "CHAIR" }));
+        jComboBox1.setToolTipText("");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -114,12 +104,8 @@ public class Registrar extends javax.swing.JDialog {
                                 .addComponent(CPFFormated))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(ChairButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(AutorButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(AvaliadorButton)
-                                .addGap(0, 132, Short.MAX_VALUE))))
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(LoginLabel)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -129,7 +115,7 @@ public class Registrar extends javax.swing.JDialog {
                         .addComponent(SenhaText)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(201, Short.MAX_VALUE)
                 .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60))
         );
@@ -152,13 +138,11 @@ public class Registrar extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CpfLabel)
                     .addComponent(CPFFormated, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TipoLabel)
-                    .addComponent(ChairButton)
-                    .addComponent(AutorButton)
-                    .addComponent(AvaliadorButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -188,10 +172,6 @@ public class Registrar extends javax.swing.JDialog {
     private void SenhaTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SenhaTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SenhaTextActionPerformed
-
-    private void AutorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AutorButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AutorButtonActionPerformed
 
     private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
         // TODO add your handling code here:
@@ -240,10 +220,7 @@ public class Registrar extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton AutorButton;
-    private javax.swing.JRadioButton AvaliadorButton;
     private javax.swing.JFormattedTextField CPFFormated;
-    private javax.swing.JRadioButton ChairButton;
     private javax.swing.JLabel CpfLabel;
     private javax.swing.JLabel LoginLabel;
     private javax.swing.JTextField LoginText;
@@ -253,6 +230,7 @@ public class Registrar extends javax.swing.JDialog {
     private javax.swing.JLabel SenhaLabel;
     private javax.swing.JPasswordField SenhaText;
     private javax.swing.JLabel TipoLabel;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -69,12 +69,8 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="ChairButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="AutorButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="AvaliadorButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="132" max="32767" attributes="0"/>
+                                  <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -91,7 +87,7 @@
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="201" max="32767" attributes="0"/>
                   <Component id="SaveButton" min="-2" pref="137" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
               </Group>
@@ -120,14 +116,12 @@
                       <Component id="CpfLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="CPFFormated" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="TipoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ChairButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="AutorButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="AvaliadorButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="48" max="32767" attributes="0"/>
+                  <EmptySpace pref="50" max="32767" attributes="0"/>
                   <Component id="SaveButton" min="-2" pref="34" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -178,24 +172,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SenhaTextActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="ChairButton">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="CHAIR"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JRadioButton" name="AutorButton">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Autor"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AutorButtonActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JRadioButton" name="AvaliadorButton">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Avaliador"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="SaveButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Salvar"/>
@@ -203,6 +179,18 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaveButtonActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jComboBox1">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="3">
+                <StringItem index="0" value="Autor"/>
+                <StringItem index="1" value="Avaliador"/>
+                <StringItem index="2" value="CHAIR"/>
+              </StringArray>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

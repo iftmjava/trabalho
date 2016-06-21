@@ -108,7 +108,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="(c) 2016 - Aula chata"/>
+            <Property name="text" type="java.lang.String" value="(c) 2016 - Aula Java"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="BotaoRegistrar">
