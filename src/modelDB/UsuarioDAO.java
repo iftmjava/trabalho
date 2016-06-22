@@ -27,20 +27,15 @@ public class UsuarioDAO implements DAO<Usuarios>{
     public void insert(Usuarios a) throws SQLException {
         Dao<Usuarios, String> accountDao =
                 DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Usuarios.class);
-        Usuarios z = new Usuarios();
-        z.setLogin(a.getLogin());
-        z.setSenha(a.getSenha());
-        z.setNome(a.getNome());
-        z.setCpf(a.getCpf());
-        z.setTipo(a.getTipo());
-        accountDao.create(z);
+      
+        accountDao.create(a);
     }
 
     @Override
     public void delete(Usuarios a) throws SQLException {
         Dao<Usuarios, String> accountDao =
                 DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Usuarios.class);
-        a.getId();
+       
         accountDao.delete(a);
     }
 
@@ -48,12 +43,7 @@ public class UsuarioDAO implements DAO<Usuarios>{
     public void alterar(Usuarios a) throws SQLException {
         Dao<Usuarios, String> accountDao =
                 DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Usuarios.class);
-        Usuarios z = new Usuarios();
-        z.setLogin(a.getLogin());
-        z.setSenha(a.getSenha());
-        z.setNome(a.getNome());
-        z.setCpf(a.getCpf());
-        z.setTipo(a.getTipo());
+   
         accountDao.update(a);
     }
 

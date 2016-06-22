@@ -19,10 +19,12 @@ import model.Evento;
  */
 public class AdministraDAO {
     
-AdministraDAO.EVENTO
+
     /**
      *
      */
-    public static Dao<Evento, String> EVENTO = DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Evento.class);
-
+   
+    public  static void Evento(){
+     //       Dao<Evento, String> EVENTO = DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Evento.class);
+    }
 }

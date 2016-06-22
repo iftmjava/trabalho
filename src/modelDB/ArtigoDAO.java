@@ -29,13 +29,7 @@ public class ArtigoDAO implements DAO<Artigo>{
     public void insert(Artigo a) throws SQLException{
          Dao<Artigo, String> accountDao =
             DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Artigo.class);
-         Artigo x = new Artigo();
-         x.setNome(a.getNome());
-         x.setArea(a.getArea());
-         x.setAutor(a.getAutor());
-         x.setComentario(a.getComentario());
-         x.setResumo(a.getResumo());
-         x.setAvaliador(a.getAvaliador());
+      
          accountDao.create(a);
          
        }
@@ -44,7 +38,7 @@ public class ArtigoDAO implements DAO<Artigo>{
     public void delete(Artigo a) throws SQLException{
     Dao<Artigo, String> accountDao =
             DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Artigo.class);
-    a.getId();
+
     accountDao.delete(a);
     
        
@@ -54,14 +48,8 @@ public class ArtigoDAO implements DAO<Artigo>{
     public void alterar(Artigo a) throws SQLException{
           Dao<Artigo, String> accountDao =
             DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Artigo.class);
-         Artigo x = new Artigo();
-         x.setNome(a.getNome());
-         x.setArea(a.getArea());
-         x.setAutor(a.getAutor());
-         x.setComentario(a.getComentario());
-         x.setResumo(a.getResumo());
-         x.setAvaliador(a.getAvaliador());
-         accountDao.update(x);
+       
+         accountDao.update(a);
        
          
     }
