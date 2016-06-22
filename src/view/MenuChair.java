@@ -33,9 +33,11 @@ public class MenuChair extends javax.swing.JFrame {
         BotaoAtribuirArtigo = new javax.swing.JButton();
         BotaoCriarEvento = new javax.swing.JButton();
         BotaoPromoverAutor = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Menu CHAIR");
+
+        PanelPrincipalChair.setToolTipText("Menu Chair");
 
         BotaoLogout.setText("Logout");
 
@@ -52,34 +54,25 @@ public class MenuChair extends javax.swing.JFrame {
 
         BotaoPromoverAutor.setText("Promover Autor");
 
-        jLabel1.setText("Menu do Chair");
-
         javax.swing.GroupLayout PanelPrincipalChairLayout = new javax.swing.GroupLayout(PanelPrincipalChair);
         PanelPrincipalChair.setLayout(PanelPrincipalChairLayout);
         PanelPrincipalChairLayout.setHorizontalGroup(
             PanelPrincipalChairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPrincipalChairLayout.createSequentialGroup()
+                .addGap(150, 150, 150)
                 .addGroup(PanelPrincipalChairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelPrincipalChairLayout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addGroup(PanelPrincipalChairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelPrincipalChairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(BotaoVerifiAvali, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(BotaoCriarEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(BotaoLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(BotaoAtribuirArtigo, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
-                            .addComponent(BotaoPromoverAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(PanelPrincipalChairLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)))
+                    .addGroup(PanelPrincipalChairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(BotaoVerifiAvali, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BotaoCriarEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BotaoLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BotaoAtribuirArtigo, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
+                    .addComponent(BotaoPromoverAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(150, Short.MAX_VALUE))
         );
         PanelPrincipalChairLayout.setVerticalGroup(
             PanelPrincipalChairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPrincipalChairLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(59, 59, 59)
+                .addGap(70, 70, 70)
                 .addComponent(BotaoVerifiAvali, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BotaoPromoverAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -156,6 +149,5 @@ public class MenuChair extends javax.swing.JFrame {
     private javax.swing.JButton BotaoPromoverAutor;
     private javax.swing.JButton BotaoVerifiAvali;
     private javax.swing.JPanel PanelPrincipalChair;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

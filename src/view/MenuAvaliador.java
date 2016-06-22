@@ -30,38 +30,31 @@ public class MenuAvaliador extends javax.swing.JFrame {
         PanelPrincipalAvaliador = new javax.swing.JPanel();
         BotaoAvaliarArtigos = new javax.swing.JButton();
         BotaoLogoutAvaliador = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Menu Avaliador");
+
+        PanelPrincipalAvaliador.setToolTipText("");
 
         BotaoAvaliarArtigos.setText("Avaliar artigos");
 
         BotaoLogoutAvaliador.setText("Logout");
-
-        jLabel1.setText("Manu do Avaliador");
 
         javax.swing.GroupLayout PanelPrincipalAvaliadorLayout = new javax.swing.GroupLayout(PanelPrincipalAvaliador);
         PanelPrincipalAvaliador.setLayout(PanelPrincipalAvaliadorLayout);
         PanelPrincipalAvaliadorLayout.setHorizontalGroup(
             PanelPrincipalAvaliadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPrincipalAvaliadorLayout.createSequentialGroup()
+                .addGap(150, 150, 150)
                 .addGroup(PanelPrincipalAvaliadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelPrincipalAvaliadorLayout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addGroup(PanelPrincipalAvaliadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BotaoLogoutAvaliador, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BotaoAvaliarArtigos, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(PanelPrincipalAvaliadorLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)))
+                    .addComponent(BotaoLogoutAvaliador, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoAvaliarArtigos, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(149, Short.MAX_VALUE))
         );
         PanelPrincipalAvaliadorLayout.setVerticalGroup(
             PanelPrincipalAvaliadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPrincipalAvaliadorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(88, 88, 88)
+                .addGap(113, 113, 113)
                 .addComponent(BotaoAvaliarArtigos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BotaoLogoutAvaliador, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -125,6 +118,5 @@ public class MenuAvaliador extends javax.swing.JFrame {
     private javax.swing.JButton BotaoAvaliarArtigos;
     private javax.swing.JButton BotaoLogoutAvaliador;
     private javax.swing.JPanel PanelPrincipalAvaliador;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
