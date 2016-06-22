@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Euclebio/Desktop/Trabalhoso/trabalho/src/view/Registrar.java</file>
+            <file>file:/C:/Users/Euclebio/Desktop/Trabalhoso/trabalho/src/model/Artigo.java</file>
             <file>file:/C:/Users/Euclebio/Desktop/Trabalhoso/trabalho/src/control/Main.java</file>
             <file>file:/C:/Users/Euclebio/Desktop/Trabalhoso/trabalho/src/view/Menu2.java</file>
             <file>file:/C:/Users/Euclebio/Desktop/Trabalhoso/trabalho/src/view/MenuChair.java</file>
+            <file>file:/C:/Users/Euclebio/Desktop/Trabalhoso/trabalho/src/modelDB/UsuarioDAO.java</file>
+            <file>file:/C:/Users/Euclebio/Desktop/Trabalhoso/trabalho/src/view/CadastrarArtigo.java</file>
         </group>
     </open-files>
 </project-private>
