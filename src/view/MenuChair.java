@@ -40,10 +40,25 @@ public class MenuChair extends javax.swing.JFrame {
         PanelPrincipalChair.setToolTipText("Menu Chair");
 
         BotaoLogout.setText("Logout");
+        BotaoLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoLogoutActionPerformed(evt);
+            }
+        });
 
         BotaoVerifiAvali.setText("Verificar Avaliacao");
+        BotaoVerifiAvali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoVerifiAvaliActionPerformed(evt);
+            }
+        });
 
         BotaoAtribuirArtigo.setText("Atribuir Artigo a Avaliador ");
+        BotaoAtribuirArtigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoAtribuirArtigoActionPerformed(evt);
+            }
+        });
 
         BotaoCriarEvento.setText("Criar Evento");
         BotaoCriarEvento.addActionListener(new java.awt.event.ActionListener() {
@@ -53,6 +68,11 @@ public class MenuChair extends javax.swing.JFrame {
         });
 
         BotaoPromoverAutor.setText("Promover Autor");
+        BotaoPromoverAutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoPromoverAutorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelPrincipalChairLayout = new javax.swing.GroupLayout(PanelPrincipalChair);
         PanelPrincipalChair.setLayout(PanelPrincipalChairLayout);
@@ -100,8 +120,44 @@ public class MenuChair extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoCriarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCriarEventoActionPerformed
-        // TODO add your handling code here:
+        CadastrarEvento cadastro = new CadastrarEvento(this, true);
+        cadastro.setSize(600,430);
+        cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        cadastro.setLocationRelativeTo(null);
+        cadastro.setVisible(true);
     }//GEN-LAST:event_BotaoCriarEventoActionPerformed
+
+    private void BotaoLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLogoutActionPerformed
+        this.dispose();
+        Menu2 menu = new Menu2();
+        menu.setVisible(true);
+        menu.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        menu.setLocationRelativeTo(null);
+    }//GEN-LAST:event_BotaoLogoutActionPerformed
+
+    private void BotaoVerifiAvaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVerifiAvaliActionPerformed
+        VerificarAvaliacao cadastro = new VerificarAvaliacao(this, true);
+        cadastro.setSize(600,500);
+        cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        cadastro.setLocationRelativeTo(null);
+        cadastro.setVisible(true);
+    }//GEN-LAST:event_BotaoVerifiAvaliActionPerformed
+
+    private void BotaoPromoverAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoPromoverAutorActionPerformed
+        PromoverUsuario cadastro = new PromoverUsuario(this, true);
+        cadastro.setSize(520,400);
+        cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        cadastro.setLocationRelativeTo(null);
+        cadastro.setVisible(true);
+    }//GEN-LAST:event_BotaoPromoverAutorActionPerformed
+
+    private void BotaoAtribuirArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAtribuirArtigoActionPerformed
+        AtribuirArtAvaliador cadastro = new AtribuirArtAvaliador(this, true);
+        cadastro.setSize(600,430);
+        cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        cadastro.setLocationRelativeTo(null);
+        cadastro.setVisible(true);
+    }//GEN-LAST:event_BotaoAtribuirArtigoActionPerformed
 
     /**
      * @param args the command line arguments

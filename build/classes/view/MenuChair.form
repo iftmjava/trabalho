@@ -80,16 +80,25 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Logout"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoLogoutActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BotaoVerifiAvali">
           <Properties>
             <Property name="text" type="java.lang.String" value="Verificar Avaliacao"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoVerifiAvaliActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BotaoAtribuirArtigo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Atribuir Artigo a Avaliador "/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoAtribuirArtigoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BotaoCriarEvento">
           <Properties>
@@ -103,6 +112,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Promover Autor"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoPromoverAutorActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

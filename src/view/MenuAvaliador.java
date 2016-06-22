@@ -37,8 +37,18 @@ public class MenuAvaliador extends javax.swing.JFrame {
         PanelPrincipalAvaliador.setToolTipText("");
 
         BotaoAvaliarArtigos.setText("Avaliar artigos");
+        BotaoAvaliarArtigos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoAvaliarArtigosActionPerformed(evt);
+            }
+        });
 
         BotaoLogoutAvaliador.setText("Logout");
+        BotaoLogoutAvaliador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoLogoutAvaliadorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelPrincipalAvaliadorLayout = new javax.swing.GroupLayout(PanelPrincipalAvaliador);
         PanelPrincipalAvaliador.setLayout(PanelPrincipalAvaliadorLayout);
@@ -78,6 +88,22 @@ public class MenuAvaliador extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BotaoAvaliarArtigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAvaliarArtigosActionPerformed
+        AvaliarArtigo cadastro = new AvaliarArtigo(this, true);
+        cadastro.setSize(640,500);
+        cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        cadastro.setLocationRelativeTo(null);
+        cadastro.setVisible(true);
+    }//GEN-LAST:event_BotaoAvaliarArtigosActionPerformed
+
+    private void BotaoLogoutAvaliadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLogoutAvaliadorActionPerformed
+        this.dispose();
+        Menu2 menu = new Menu2();
+        menu.setVisible(true);
+        menu.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        menu.setLocationRelativeTo(null);
+    }//GEN-LAST:event_BotaoLogoutAvaliadorActionPerformed
 
     /**
      * @param args the command line arguments

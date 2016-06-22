@@ -36,10 +36,25 @@ public class MenuAutor extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         BotaoEnviarArtigo.setText("Enviar artigo");
+        BotaoEnviarArtigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoEnviarArtigoActionPerformed(evt);
+            }
+        });
 
         BotaoNotas.setText("Notas");
+        BotaoNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoNotasActionPerformed(evt);
+            }
+        });
 
         BotaoLogoutAutor.setText("Logout");
+        BotaoLogoutAutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoLogoutAutorActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Menu do Autor");
 
@@ -86,6 +101,30 @@ public class MenuAutor extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BotaoEnviarArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEnviarArtigoActionPerformed
+        CadastrarArtigo cadastro = new CadastrarArtigo(this, true);
+        cadastro.setSize(600,450);
+        cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        cadastro.setLocationRelativeTo(null);
+        cadastro.setVisible(true);
+    }//GEN-LAST:event_BotaoEnviarArtigoActionPerformed
+
+    private void BotaoNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoNotasActionPerformed
+        VerNotas cadastro = new VerNotas(this, true);
+        cadastro.setSize(600,450);
+        cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        cadastro.setLocationRelativeTo(null);
+        cadastro.setVisible(true);
+    }//GEN-LAST:event_BotaoNotasActionPerformed
+
+    private void BotaoLogoutAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLogoutAutorActionPerformed
+        this.dispose();
+        Menu2 menu = new Menu2();
+        menu.setVisible(true);
+        menu.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        menu.setLocationRelativeTo(null);
+    }//GEN-LAST:event_BotaoLogoutAutorActionPerformed
 
     /**
      * @param args the command line arguments

@@ -5,6 +5,9 @@
  */
 package view;
 
+import modelDB.ArtigoDAO;
+import modelDB.UsuarioDAO;
+
 /**
  *
  * @author Euclebio
@@ -46,6 +49,11 @@ public class Menu2 extends javax.swing.JFrame {
         });
 
         BotaoLogar.setText("Logar");
+        BotaoLogar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoLogarActionPerformed(evt);
+            }
+        });
 
         LabelLogin.setText("Login");
 
@@ -134,6 +142,12 @@ public class Menu2 extends javax.swing.JFrame {
         cadastro.setVisible(true);
 
     }//GEN-LAST:event_BotaoRegistrarActionPerformed
+
+    private void BotaoLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLogarActionPerformed
+        UsuarioDAO dao = new UsuarioDAO();
+        
+        
+    }//GEN-LAST:event_BotaoLogarActionPerformed
 
     /**
      * @param args the command line arguments
