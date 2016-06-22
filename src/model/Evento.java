@@ -12,9 +12,9 @@ public class Evento {
     @DatabaseField
     private String nome;
     @DatabaseField
-    private LocalDate data_criacao;
+    private long data_criacao;
     @DatabaseField
-    private LocalDate data_limite;
+    private long data_limite;
     @DatabaseField
     private int edicao;
     @DatabaseField
@@ -23,6 +23,11 @@ public class Evento {
     private int nArtigosAceitos;
     @DatabaseField
     private int limiteArtigos;
+
+    
+   public long getLong(LocalDate a){
+       return a.toEpochDay();
+   }
 
     public int getId() {
         return id;
@@ -40,19 +45,19 @@ public class Evento {
         this.nome = nome;
     }
 
-    public LocalDate getData_criacao() {
+    public long getData_criacao() {
         return data_criacao;
     }
 
-    public void setData_criacao(LocalDate data_criacao) {
+    public void setData_criacao(long data_criacao) {
         this.data_criacao = data_criacao;
     }
 
-    public LocalDate getData_limite() {
+    public long getData_limite() {
         return data_limite;
     }
 
-    public void setData_limite(LocalDate data_limite) {
+    public void setData_limite(long data_limite) {
         this.data_limite = data_limite;
     }
 
@@ -87,5 +92,6 @@ public class Evento {
     public void setLimiteArtigos(int limiteArtigos) {
         this.limiteArtigos = limiteArtigos;
     }
-
+    
+   
 }

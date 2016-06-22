@@ -5,6 +5,12 @@
  */
 package view;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.Usuarios;
+import modelDB.UsuarioDAO;
+
 /**
  *
  * @author Aluno
@@ -174,7 +180,18 @@ public class Registrar extends javax.swing.JDialog {
     }//GEN-LAST:event_SenhaTextActionPerformed
 
     private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
-        // TODO add your handling code here:
+        UsuarioDAO dao = new UsuarioDAO();
+        Usuarios usuario = new Usuarios();
+        usuario.setLogin(LoginText.getText());
+        usuario.setSenha(SenhaText.getText());
+        usuario.setNome(NomeText.getText());
+        usuario.setCpf(CPFFormated.getText());
+        usuario.setTipo(TipoLabel.getText());
+        try {
+            dao.insert(usuario);
+        } catch (SQLException ex) {
+            Logger.getLogger(Registrar.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_SaveButtonActionPerformed
 
     /**

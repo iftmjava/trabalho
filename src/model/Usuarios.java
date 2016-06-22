@@ -15,11 +15,12 @@ public class Usuarios {
     @DatabaseField
     private String cpf;
     @DatabaseField
-    private int tipo;
+    private String tipo;
     @DatabaseField(id = true)
     private int id;
 
     //Metodos do Usuarios
+
     public String getLogin() {
         return login;
     }
@@ -52,11 +53,11 @@ public class Usuarios {
         this.cpf = cpf;
     }
 
-    public int getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(int tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
@@ -67,5 +68,6 @@ public class Usuarios {
     public void setId(int id) {
         this.id = id;
     }
+    
 
 }

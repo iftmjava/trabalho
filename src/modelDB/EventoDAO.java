@@ -24,6 +24,7 @@ public class EventoDAO implements DAO<Evento> {
     public void insert(Evento a) throws SQLException {
         Dao<Evento, String> accountDao =
             DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Evento.class);
+        
         accountDao.create(a);
     }
 
