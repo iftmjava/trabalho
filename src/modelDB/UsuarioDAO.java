@@ -56,8 +56,12 @@ public class UsuarioDAO implements DAO<Usuarios>{
         
             return Usuarios;
     }
+    
  
-   
+ /*  public Usuarios target(String Login){
+       List<Usuarios, String> 
+       retrun ;
+   }*/
 
    
 

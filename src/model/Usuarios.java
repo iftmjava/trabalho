@@ -6,6 +6,8 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "usuarios")
 public class Usuarios {
     
+    @DatabaseField(id = true)
+    private int id;
     @DatabaseField
     private String login;
     @DatabaseField
@@ -16,11 +18,10 @@ public class Usuarios {
     private String cpf;
     @DatabaseField
     private String tipo;
-    @DatabaseField(id = true)
-    private int id;
 
     //Metodos do Usuarios
-
+    public static final String Confere = "login";
+    
     public String getLogin() {
         return login;
     }
