@@ -6,9 +6,11 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "usuarios")
 public class Usuarios {
     
+    public static final String USUARIO_CAMPO = "login";
+    
     @DatabaseField(id = true)
     private int id;
-    @DatabaseField
+    @DatabaseField(columnName = USUARIO_CAMPO)
     private String login;
     @DatabaseField
     private String senha;

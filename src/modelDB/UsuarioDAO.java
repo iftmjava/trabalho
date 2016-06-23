@@ -49,12 +49,17 @@ public class UsuarioDAO implements DAO<Usuarios>{
 
     @Override
     public List<Usuarios> listar() throws SQLException {
-       Dao<Usuarios, String> DADAO =
+        try {
+            Dao<Usuarios, String> DADAO =
             DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Usuarios.class);
         
         List<Usuarios> Usuarios = DADAO.queryForAll();
-        
-            return Usuarios;
+        return Usuarios;
+            
+        } catch (Exception e) {
+            
+        }
+        return null;
     }
     
  
@@ -75,8 +80,12 @@ public class UsuarioDAO implements DAO<Usuarios>{
                
        return null;
    }
-
-   
+   /*
+   public static boolean login(String user, String tsenha) {
+       DAOManager DAO = new DAOManager("usuario");
+       
+   }
+   */
 
 
   

@@ -151,6 +151,19 @@ public class Menu2 extends javax.swing.JFrame {
     private void BotaoLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLogarActionPerformed
         UsuarioDAO dao = new UsuarioDAO();
         Usuarios temp = new Usuarios();
+        String login;
+        login = Login.getText();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         try {
             temp = dao.target(Login.getText());
         } catch (SQLException ex) {
