@@ -127,8 +127,7 @@ public class CadastrarArtigo extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         ArtigoDAO dao = new ArtigoDAO();
         Artigo artigo = new Artigo();
-        artigo.setNome(NomeTextField.getText());
-        
+        artigo.setNome(NomeTextField.getText());  
         //artigo.setAutor();
         artigo.setArea(AreaTextField.getText());
         artigo.setResumo(TextareaResumo.getText());

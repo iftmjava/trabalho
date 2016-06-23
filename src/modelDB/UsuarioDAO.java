@@ -58,11 +58,16 @@ public class UsuarioDAO implements DAO<Usuarios>{
     }
     
  
- /*  public Usuarios target(String Login){
-       List<Usuarios, String> 
+   /*public Usuarios target(String Login){
+        Dao<Usuarios, String> DADAO =
+            DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Usuarios.class);
+        
+       List<Usuarios> Users = DADAO.queryFor, Login)
+              
+       
        retrun ;
-   }*/
-
+   }
+*/
    
 
 
