@@ -6,6 +6,8 @@
 package view;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Evento;
@@ -167,9 +169,12 @@ public class CadastrarEvento extends javax.swing.JDialog {
     private void BotaoSalvarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSalvarEventoActionPerformed
             Evento evento = new Evento();
             EventoDAO dao = new EventoDAO();
+            LocalDate parametro;
             evento.setNome(NomeTextField.getText());
-            //evento.setData_criacao(DatacTextField.getText());
-            //evento.setData_limite(DatafTextField.getText());
+            parametro = this.trataData(DatacTextField.getText());
+            evento.setData_criacao(parametro.toEpochDay());
+            parametro = this.trataData(DatafTextField.getText());
+            evento.setData_limite(parametro.toEpochDay());
             evento.setEdicao(Integer.parseInt(EdicaoTextField.getText()));
             evento.setArea(AreaTextField.getText());
             evento.setLimiteArtigos(Integer.parseInt(LimiteaTextField.getText()));
@@ -221,6 +226,20 @@ public class CadastrarEvento extends javax.swing.JDialog {
                 dialog.setVisible(true);
             }
         });
+    }
+    
+    public LocalDate trataData(String a){
+        LocalDate data;
+        String  b, c, d;
+        int ano, mes, dia;
+        b = a.substring(0,2);
+        c = a.substring(3,6);
+        d = a.substring(6,10);
+        ano = Integer.parseInt(d);
+        mes = Integer.parseInt(c);
+        dia = Integer.parseInt(b);
+        data = LocalDate.of(ano,mes,dia);
+        return data;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
