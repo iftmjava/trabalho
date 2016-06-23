@@ -5,6 +5,10 @@
  */
 package view;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Aluno
@@ -90,7 +94,12 @@ public class MenuAvaliador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoAvaliarArtigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAvaliarArtigosActionPerformed
-        AvaliarArtigo cadastro = new AvaliarArtigo(this, true);
+        AvaliarArtigo cadastro = null;
+        try {
+            cadastro = new AvaliarArtigo(this, true);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuAvaliador.class.getName()).log(Level.SEVERE, null, ex);
+        }
         cadastro.setSize(640,500);
         cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         cadastro.setLocationRelativeTo(null);

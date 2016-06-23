@@ -5,6 +5,10 @@
  */
 package view;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Euclebio
@@ -136,15 +140,25 @@ public class MenuChair extends javax.swing.JFrame {
     }//GEN-LAST:event_BotaoLogoutActionPerformed
 
     private void BotaoVerifiAvaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVerifiAvaliActionPerformed
-        VerificarAvaliacao cadastro = new VerificarAvaliacao(this, true);
-        cadastro.setSize(600,500);
+        VerificarAvaliacao cadastro = null;
+        try {
+            cadastro = new VerificarAvaliacao(this, true);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuChair.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        cadastro.setSize(800,500);
         cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         cadastro.setLocationRelativeTo(null);
         cadastro.setVisible(true);
     }//GEN-LAST:event_BotaoVerifiAvaliActionPerformed
 
     private void BotaoPromoverAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoPromoverAutorActionPerformed
-        PromoverUsuario cadastro = new PromoverUsuario(this, true);
+        PromoverUsuario cadastro = null;
+        try {
+            cadastro = new PromoverUsuario(this, true);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuChair.class.getName()).log(Level.SEVERE, null, ex);
+        }
         cadastro.setSize(520,400);
         cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         cadastro.setLocationRelativeTo(null);
