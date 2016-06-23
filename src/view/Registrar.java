@@ -40,12 +40,12 @@ public class Registrar extends javax.swing.JDialog {
         NomeLabel = new javax.swing.JLabel();
         CpfLabel = new javax.swing.JLabel();
         TipoLabel = new javax.swing.JLabel();
-        CPFFormated = new javax.swing.JFormattedTextField();
         LoginText = new javax.swing.JTextField();
         NomeText = new javax.swing.JTextField();
         SenhaText = new javax.swing.JPasswordField();
         SaveButton = new javax.swing.JButton();
         Tipos = new javax.swing.JComboBox();
+        EmailTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela Registro Usuario");
@@ -56,20 +56,9 @@ public class Registrar extends javax.swing.JDialog {
 
         NomeLabel.setText("Nome:");
 
-        CpfLabel.setText("CPF:");
+        CpfLabel.setText("Email:");
 
         TipoLabel.setText("TIPO:");
-
-        try {
-            CPFFormated.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        CPFFormated.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CPFFormatedActionPerformed(evt);
-            }
-        });
 
         SenhaText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,24 +90,22 @@ public class Registrar extends javax.swing.JDialog {
                             .addComponent(LoginText)
                             .addComponent(NomeText)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TipoLabel)
-                            .addComponent(CpfLabel))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(CPFFormated))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(Tipos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(SenhaLabel)
+                        .addGap(15, 15, 15)
+                        .addComponent(SenhaText))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(LoginLabel)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(SenhaLabel)
-                        .addGap(15, 15, 15)
-                        .addComponent(SenhaText)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TipoLabel)
+                            .addComponent(CpfLabel))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Tipos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(EmailTextField))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(201, Short.MAX_VALUE)
@@ -143,7 +130,7 @@ public class Registrar extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CpfLabel)
-                    .addComponent(CPFFormated, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TipoLabel)
@@ -171,10 +158,6 @@ public class Registrar extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CPFFormatedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CPFFormatedActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CPFFormatedActionPerformed
-
     private void SenhaTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SenhaTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SenhaTextActionPerformed
@@ -185,7 +168,7 @@ public class Registrar extends javax.swing.JDialog {
         usuario.setLogin(LoginText.getText());
         usuario.setSenha(SenhaText.getText());
         usuario.setNome(NomeText.getText());
-        usuario.setCpf(CPFFormated.getText());
+        usuario.setEmail(EmailTextField.getText());
         usuario.setTipo((String) Tipos.getSelectedItem());
         try {
             dao.insert(usuario);
@@ -237,8 +220,8 @@ public class Registrar extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFormattedTextField CPFFormated;
     private javax.swing.JLabel CpfLabel;
+    private javax.swing.JTextField EmailTextField;
     private javax.swing.JLabel LoginLabel;
     private javax.swing.JTextField LoginText;
     private javax.swing.JLabel NomeLabel;

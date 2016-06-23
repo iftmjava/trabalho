@@ -58,30 +58,27 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="TipoLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="CpfLabel" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                  <Component id="CPFFormated" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="Tipos" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="SenhaLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                          <Component id="SenhaText" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="LoginLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="SenhaLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                          <Component id="SenhaText" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="TipoLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="CpfLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="Tipos" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="EmailTextField" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -114,7 +111,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="CpfLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CPFFormated" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="EmailTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -145,23 +142,13 @@
         </Component>
         <Component class="javax.swing.JLabel" name="CpfLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="CPF:"/>
+            <Property name="text" type="java.lang.String" value="Email:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="TipoLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="TIPO:"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JFormattedTextField" name="CPFFormated">
-          <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-              <Format format="###.###.###-##" subtype="-1" type="5"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CPFFormatedActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="LoginText">
         </Component>
@@ -191,6 +178,8 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="EmailTextField">
         </Component>
       </SubComponents>
     </Container>

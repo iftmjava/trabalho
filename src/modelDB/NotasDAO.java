@@ -24,28 +24,28 @@ public class NotasDAO implements DAO<Notas> {
     @Override
     public void insert(Notas a) throws SQLException{
         Dao<Notas, String> accountDao =
-        DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Notas.class);
+        DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Notas.class);
         accountDao.create(a);
        }
 
     @Override
     public void delete(Notas a) throws SQLException{
         Dao<Notas, String> accountDao =
-        DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Notas.class);
+        DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Notas.class);
         accountDao.delete(a);
     }
 
     @Override
     public void alterar(Notas a) throws SQLException{
         Dao<Notas, String> accountDao =
-        DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Notas.class);
+        DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Notas.class);
         accountDao.update(a);
     }
 
     @Override
     public List<Notas> listar() throws SQLException{
         Dao<Notas, String> DADAO =
-        DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Notas.class);
+        DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Notas.class);
         List<Notas> Notas = DADAO.queryForAll();
         return Notas;
     }

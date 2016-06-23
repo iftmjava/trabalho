@@ -15,13 +15,21 @@ public class Usuarios {
     @DatabaseField
     private String nome;
     @DatabaseField
-    private String cpf;
+    private String email;
     @DatabaseField
     private String tipo;
 
     //Metodos do Usuarios
     public static final String Confere = "login";
-    
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getLogin() {
         return login;
     }
@@ -46,12 +54,12 @@ public class Usuarios {
         this.nome = nome;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getTipo() {
@@ -61,14 +69,7 @@ public class Usuarios {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    
     
 
 }

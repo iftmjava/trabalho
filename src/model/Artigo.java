@@ -3,7 +3,7 @@ package model;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "artigos")
+@DatabaseTable(tableName = "artigo")
 public class Artigo {
     @DatabaseField
     private String nome;
@@ -15,7 +15,7 @@ public class Artigo {
     private String Resumo;
     @DatabaseField(id = true)
     private static int id = 0;
-    @DatabaseField
+    @DatabaseField(foreign = true)
     private Usuarios avaliador;
     @DatabaseField
     private String comentario;

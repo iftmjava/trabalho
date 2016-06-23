@@ -23,7 +23,7 @@ public class EventoDAO implements DAO<Evento> {
     @Override
     public void insert(Evento a) throws SQLException {
         Dao<Evento, String> accountDao =
-            DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Evento.class);
+            DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Evento.class);
         
         accountDao.createOrUpdate(a);
     }
@@ -31,21 +31,21 @@ public class EventoDAO implements DAO<Evento> {
     @Override
     public void delete(Evento a) throws SQLException {
      Dao<Evento, String> accountDao =
-            DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Evento.class);   
+            DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Evento.class);   
     accountDao.delete(a);
     }
 
     @Override
     public void alterar(Evento a) throws SQLException {
         Dao<Evento, String> accountDao =
-            DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Evento.class);
+            DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Evento.class);
         accountDao.update(a);
     }
 
     @Override
     public List<Evento> listar() throws SQLException {
         Dao<Evento, String> DADAO =
-            DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Evento.class);
+            DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Evento.class);
         
         List<Evento> Eventos = DADAO.queryForAll();
         

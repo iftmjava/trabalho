@@ -5,7 +5,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import java.time.LocalDate;
 
-@DatabaseTable(tableName = "eventos")
+@DatabaseTable(tableName = "evento")
 public class Evento {
     @DatabaseField(id = true)
     private int id;

@@ -15,6 +15,8 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Artigo;
+import model.Evento;
+import model.Notas;
 import modelDB.ArtigoDAO;
 import model.Usuarios;
 import view.Menu2;
@@ -23,24 +25,12 @@ public class Main {
 
     public Main() throws SQLException {
         
-         Connection c = SQLITE.conectar("test");
-        
-        Statement stmt;
-        try {
-            stmt = c.createStatement();
-                  String sql = "CREATE TABLE COMPANY " +
-                   "(ID INT PRIMARY KEY     NOT NULL," +
-                   " NAME           TEXT    NOT NULL, " + 
-                   " AGE            INT     NOT NULL, " + 
-                   " ADDRESS        CHAR(50), " + 
-                   " SALARY         REAL)"; 
-      stmt.executeUpdate(sql);
-      stmt.close();
-      c.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-      
+        /*
+        TableUtils.createTable(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Usuarios.class);
+        TableUtils.createTable(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Artigo.class);
+        TableUtils.createTable(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Evento.class);
+        TableUtils.createTable(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Notas.class);
+        */
       
     }
 

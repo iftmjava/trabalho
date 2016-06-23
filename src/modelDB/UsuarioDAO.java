@@ -26,7 +26,7 @@ public class UsuarioDAO implements DAO<Usuarios>{
     @Override
     public void insert(Usuarios a) throws SQLException {
         Dao<Usuarios, String> accountDao =
-                DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Usuarios.class);
+                DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Usuarios.class);
       
         accountDao.create(a);
     }
@@ -34,7 +34,7 @@ public class UsuarioDAO implements DAO<Usuarios>{
     @Override
     public void delete(Usuarios a) throws SQLException {
         Dao<Usuarios, String> accountDao =
-                DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Usuarios.class);
+                DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Usuarios.class);
        
         accountDao.delete(a);
     }
@@ -42,7 +42,7 @@ public class UsuarioDAO implements DAO<Usuarios>{
     @Override
     public void alterar(Usuarios a) throws SQLException {
         Dao<Usuarios, String> accountDao =
-                DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Usuarios.class);
+                DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Usuarios.class);
    
         accountDao.update(a);
     }
@@ -50,7 +50,7 @@ public class UsuarioDAO implements DAO<Usuarios>{
     @Override
     public List<Usuarios> listar() throws SQLException {
        Dao<Usuarios, String> DADAO =
-            DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Usuarios.class);
+            DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Usuarios.class);
         
         List<Usuarios> Usuarios = DADAO.queryForAll();
         
