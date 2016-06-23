@@ -272,6 +272,7 @@ ArtigoDAO parameter = new ArtigoDAO();
         temp = objeto;
         try {
             temp.setComentario(Comente.getText());
+            temp.setNotas(nota);
             temp0.alterar(temp);
         } catch (SQLException ex) {
             Logger.getLogger(AvaliarArtigo.class.getName()).log(Level.SEVERE, null, ex);

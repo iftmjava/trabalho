@@ -17,10 +17,13 @@ public class Artigo {
     private static int id = 0;
     @DatabaseField
     private Usuarios avaliador;
+
     @DatabaseField
     private String comentario;
     @DatabaseField
     private boolean aprovado = false;
+    @DatabaseField(foreign = true)
+    public Notas notas;
 
     public String getNome() {
         return nome;
@@ -32,6 +35,14 @@ public class Artigo {
 
     public Usuarios getAutor() {
         return autor;
+    }
+    
+    public Notas getNotas() {
+        return notas;
+    }
+
+    public void setNotas(Notas notas) {
+        this.notas = notas;
     }
 
     public void setAutor(Usuarios autor) {
