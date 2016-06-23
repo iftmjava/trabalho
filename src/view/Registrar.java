@@ -45,7 +45,7 @@ public class Registrar extends javax.swing.JDialog {
         NomeText = new javax.swing.JTextField();
         SenhaText = new javax.swing.JPasswordField();
         SaveButton = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
+        Tipos = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela Registro Usuario");
@@ -84,8 +84,8 @@ public class Registrar extends javax.swing.JDialog {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Autor", "Avaliador", "CHAIR" }));
-        jComboBox1.setToolTipText("");
+        Tipos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Autor", "Avaliador", "CHAIR" }));
+        Tipos.setToolTipText("");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -110,7 +110,7 @@ public class Registrar extends javax.swing.JDialog {
                                 .addComponent(CPFFormated))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Tipos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(LoginLabel)
@@ -147,7 +147,7 @@ public class Registrar extends javax.swing.JDialog {
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TipoLabel)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Tipos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -186,7 +186,7 @@ public class Registrar extends javax.swing.JDialog {
         usuario.setSenha(SenhaText.getText());
         usuario.setNome(NomeText.getText());
         usuario.setCpf(CPFFormated.getText());
-        usuario.setTipo(TipoLabel.getText());
+        usuario.setTipo((String) Tipos.getSelectedItem());
         try {
             dao.insert(usuario);
         } catch (SQLException ex) {
@@ -247,7 +247,7 @@ public class Registrar extends javax.swing.JDialog {
     private javax.swing.JLabel SenhaLabel;
     private javax.swing.JPasswordField SenhaText;
     private javax.swing.JLabel TipoLabel;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox Tipos;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
