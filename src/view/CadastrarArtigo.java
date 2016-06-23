@@ -44,7 +44,7 @@ public class CadastrarArtigo extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TextareaResumo = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        enviar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 400));
@@ -59,10 +59,10 @@ public class CadastrarArtigo extends javax.swing.JDialog {
         TextareaResumo.setRows(5);
         jScrollPane1.setViewportView(TextareaResumo);
 
-        jButton1.setText("Enviar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        enviar.setText("Enviar");
+        enviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                enviarActionPerformed(evt);
             }
         });
 
@@ -88,7 +88,7 @@ public class CadastrarArtigo extends javax.swing.JDialog {
                 .addContainerGap(191, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(97, 97, 97))
         );
         jPanel1Layout.setVerticalGroup(
@@ -107,7 +107,7 @@ public class CadastrarArtigo extends javax.swing.JDialog {
                     .addComponent(jLabel4)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(121, Short.MAX_VALUE))
         );
 
@@ -129,7 +129,7 @@ public class CadastrarArtigo extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarActionPerformed
         ArtigoDAO dao = new ArtigoDAO();
         Artigo artigo = new Artigo();
         artigo.setNome(NomeTextField.getText());  
@@ -137,7 +137,7 @@ public class CadastrarArtigo extends javax.swing.JDialog {
         artigo.setArea(AreaTextField.getText());
         artigo.setResumo(TextareaResumo.getText());
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_enviarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,7 +185,7 @@ public class CadastrarArtigo extends javax.swing.JDialog {
     private javax.swing.JTextField AreaTextField;
     private javax.swing.JTextField NomeTextField;
     private javax.swing.JTextArea TextareaResumo;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton enviar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
