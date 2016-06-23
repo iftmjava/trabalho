@@ -8,7 +8,7 @@ public class ConnectionFactory {
     
     public Connection getConnection() {
         try {
-            return DriverManager.getConnection("jbdc:://localhost/fj21", "root", "root");
+            return DriverManager.getConnection("jdbc:sqlite:test.db");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
