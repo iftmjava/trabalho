@@ -17,7 +17,6 @@ public class Artigo {
     private static int id = 0;
     @DatabaseField
     private Usuarios avaliador;
-
     @DatabaseField
     private String comentario;
     @DatabaseField

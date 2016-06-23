@@ -259,9 +259,11 @@ ArtigoDAO parameter = new ArtigoDAO();
         int LinhaSelecionada = tableaArt.getSelectedRow();
         Artigo objeto = (Artigo) list1.get(LinhaSelecionada);
         nota.setArtigo(objeto);
-        nota.setLinguagem(NotaLing.getSelectedIndex());
-        nota.setOrganizacao(NotaOrg.getSelectedIndex());
-        nota.setQualidade(NotaQua.getSelectedIndex());
+        nota.setLinguagem(Integer.parseInt((String) NotaLing.getSelectedItem()));
+  //Duas formas que nao sei se funcionam
+ 
+        nota.setOrganizacao((int) NotaOrg.getSelectedItem());
+        nota.setQualidade((int) NotaQua.getSelectedItem());
         try {
             notaD.insert(nota);
         } catch (SQLException ex) {
