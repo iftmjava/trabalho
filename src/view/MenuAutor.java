@@ -5,6 +5,8 @@
  */
 package view;
 
+import model.Usuarios;
+
 /**
  *
  * @author Aluno
@@ -14,8 +16,10 @@ public class MenuAutor extends javax.swing.JFrame {
     /**
      * Creates new form MenuAutor
      */
-    public MenuAutor() {
+    public Usuarios x;
+    public MenuAutor(Usuarios x) {
         initComponents();
+        
     }
 
     /**
@@ -103,7 +107,7 @@ public class MenuAutor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoEnviarArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEnviarArtigoActionPerformed
-        CadastrarArtigo cadastro = new CadastrarArtigo(this, true);
+        CadastrarArtigo cadastro = new CadastrarArtigo(this, true, this.x);
         cadastro.setSize(600,450);
         cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         cadastro.setLocationRelativeTo(null);
@@ -157,7 +161,7 @@ public class MenuAutor extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                MenuAutor menu = new MenuAutor();
+                MenuAutor menu = new MenuAutor(null);
                 menu.setVisible(true);
                 menu.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
                 menu.setLocationRelativeTo(null);

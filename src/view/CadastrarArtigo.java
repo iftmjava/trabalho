@@ -6,6 +6,7 @@
 package view;
 
 import model.Artigo;
+import model.Usuarios;
 import modelDB.ArtigoDAO;
 
 /**
@@ -17,10 +18,14 @@ public class CadastrarArtigo extends javax.swing.JDialog {
     /**
      * Creates new form CadastrarArtigo
      */
-    public CadastrarArtigo(java.awt.Frame parent, boolean modal) {
+    public Usuarios x;
+    public CadastrarArtigo(java.awt.Frame parent, boolean modal, Usuarios x) {
         super(parent, modal);
         initComponents();
     }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -128,7 +133,7 @@ public class CadastrarArtigo extends javax.swing.JDialog {
         ArtigoDAO dao = new ArtigoDAO();
         Artigo artigo = new Artigo();
         artigo.setNome(NomeTextField.getText());  
-        //artigo.setAutor();
+        artigo.setAutor(this.x);
         artigo.setArea(AreaTextField.getText());
         artigo.setResumo(TextareaResumo.getText());
         
@@ -164,7 +169,7 @@ public class CadastrarArtigo extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                CadastrarArtigo dialog = new CadastrarArtigo(new javax.swing.JFrame(), true);
+                CadastrarArtigo dialog = new CadastrarArtigo(new javax.swing.JFrame(), true, null);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

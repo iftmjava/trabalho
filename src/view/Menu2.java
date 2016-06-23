@@ -174,14 +174,14 @@ public class Menu2 extends javax.swing.JFrame {
                 else{
                     if(temp.getTipo().equals("Autor")){
                         this.dispose();
-                        MenuAutor autor = new MenuAutor();
+                        MenuAutor autor = new MenuAutor(temp);
                         autor.setSize(500,500);
                         autor.setDefaultCloseOperation(EXIT_ON_CLOSE);
                         autor.setLocationRelativeTo(null);
                         autor.setVisible(true);
                     }
                     else{
-                         this.dispose();
+                        this.dispose();
                         MenuAvaliador avaliador = new MenuAvaliador();
                         avaliador.setSize(500,500);
                         avaliador.setDefaultCloseOperation(EXIT_ON_CLOSE);
