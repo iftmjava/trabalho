@@ -5,6 +5,11 @@
  */
 package view;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import model.Usuarios;
 import modelDB.ArtigoDAO;
 import modelDB.UsuarioDAO;
 
@@ -145,7 +150,47 @@ public class Menu2 extends javax.swing.JFrame {
 
     private void BotaoLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLogarActionPerformed
         UsuarioDAO dao = new UsuarioDAO();
+        Usuarios temp = new Usuarios();
         
+        try {
+            temp = dao.target(Login.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(temp == null){
+            JOptionPane.showMessageDialog(null, "Login Invalido");
+        }
+        else{
+            if(temp.getSenha().equals(Senha.getText())){
+                
+                if(temp.getTipo().equals("CHAIR")){
+                    this.dispose();
+                    MenuChair chair = new MenuChair();
+                    chair.setSize(500,520);
+                    chair.setDefaultCloseOperation(EXIT_ON_CLOSE);
+                    chair.setLocationRelativeTo(null);
+                    chair.setVisible(true);
+                }
+                else{
+                    if(temp.getTipo().equals("Autor")){
+                        this.dispose();
+                        MenuAutor autor = new MenuAutor();
+                        autor.setSize(500,500);
+                        autor.setDefaultCloseOperation(EXIT_ON_CLOSE);
+                        autor.setLocationRelativeTo(null);
+                        autor.setVisible(true);
+                    }
+                    else{
+                         this.dispose();
+                        MenuAvaliador avaliador = new MenuAvaliador();
+                        avaliador.setSize(500,500);
+                        avaliador.setDefaultCloseOperation(EXIT_ON_CLOSE);
+                        avaliador.setLocationRelativeTo(null);
+                        avaliador.setVisible(true);
+                    }
+                }
+            }
+        }
         
     }//GEN-LAST:event_BotaoLogarActionPerformed
 

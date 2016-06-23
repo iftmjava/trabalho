@@ -58,16 +58,24 @@ public class UsuarioDAO implements DAO<Usuarios>{
     }
     
  
-   /*public Usuarios target(String Login){
+   public Usuarios target(String Login) throws SQLException{
         Dao<Usuarios, String> DADAO =
             DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Usuarios.class);
-        
-       List<Usuarios> Users = DADAO.queryFor, Login)
-              
+        try {
+            List<Usuarios> logins = DADAO.query(
+             DADAO.queryBuilder().where().eq(Usuarios.Confere, Login) 
+                    .prepare());
+            return logins.get(0);
+            
+        }
+        catch(IndexOutOfBoundsException e){
+            System.out.println("Login Invalido");
+        }
        
-       retrun ;
+               
+       return null;
    }
-*/
+
    
 
 
