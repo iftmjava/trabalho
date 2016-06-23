@@ -43,7 +43,7 @@ public class NotasDAO implements DAO<Notas> {
     }
 
     @Override
-    public List<Notas> listar(Notas a) throws SQLException{
+    public List<Notas> listar() throws SQLException{
         Dao<Notas, String> DADAO =
         DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Notas.class);
         List<Notas> Notas = DADAO.queryForAll();

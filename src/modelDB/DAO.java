@@ -16,5 +16,5 @@ public interface DAO<T>  {
     public void insert(T a) throws SQLException;
     public void delete(T a) throws SQLException;
     public void alterar(T a) throws SQLException;
-    public List<T> listar(T a) throws SQLException;
+    public List<T> listar() throws SQLException;
 }

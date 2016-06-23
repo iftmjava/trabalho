@@ -48,7 +48,7 @@ public class UsuarioDAO implements DAO<Usuarios>{
     }
 
     @Override
-    public List<Usuarios> listar(Usuarios a) throws SQLException {
+    public List<Usuarios> listar() throws SQLException {
        Dao<Usuarios, String> DADAO =
             DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Usuarios.class);
         

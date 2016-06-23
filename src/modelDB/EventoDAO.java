@@ -43,7 +43,7 @@ public class EventoDAO implements DAO<Evento> {
     }
 
     @Override
-    public List<Evento> listar(Evento a) throws SQLException {
+    public List<Evento> listar() throws SQLException {
         Dao<Evento, String> DADAO =
             DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Evento.class);
         

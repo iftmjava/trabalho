@@ -55,7 +55,7 @@ public class ArtigoDAO implements DAO<Artigo>{
     }
 
     @Override
-    public List<Artigo> listar(Artigo a) throws SQLException{
+    public List<Artigo> listar() throws SQLException{
      Dao<Artigo, String> DADAO =
             DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Artigo.class);
         
