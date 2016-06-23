@@ -7,6 +7,7 @@ import com.j256.ormlite.table.TableUtils;
 import javax.swing.JOptionPane;
 import modelDB.EventoDAO;
 import control.SQLITE;
+import java.awt.Menu;
 import modelDB.UsuarioDAO;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -40,10 +41,13 @@ public class Main {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
       
+      
     }
 
     public static void main(String[] args) throws SQLException {
+        new Main ();
         
+       
         
     }
 
