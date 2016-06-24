@@ -154,18 +154,11 @@ public class Menu2 extends javax.swing.JFrame {
         String login;
         login = Login.getText();
         
-        
-        
-        
-        
-        
-        
-        
-        
+  
         
         
         try {
-            temp = dao.target(Login.getText());
+            temp = dao.target(login);
         } catch (SQLException ex) {
             Logger.getLogger(Menu2.class.getName()).log(Level.SEVERE, null, ex);
         }

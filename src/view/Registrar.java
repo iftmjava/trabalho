@@ -175,6 +175,7 @@ public class Registrar extends javax.swing.JDialog {
         } catch (SQLException ex) {
             Logger.getLogger(Registrar.class.getName()).log(Level.SEVERE, null, ex);
         }
+        dispose();
     }//GEN-LAST:event_SaveButtonActionPerformed
 
     /**

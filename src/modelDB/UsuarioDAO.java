@@ -28,7 +28,7 @@ public class UsuarioDAO implements DAO<Usuarios>{
         Dao<Usuarios, String> accountDao =
                 DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Usuarios.class);
       
-        accountDao.create(a);
+        accountDao.createOrUpdate(a);
     }
 
     @Override
@@ -65,7 +65,7 @@ public class UsuarioDAO implements DAO<Usuarios>{
  
    public Usuarios target(String Login) throws SQLException{
         Dao<Usuarios, String> DADAO =
-            DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:test.db"), Usuarios.class);
+            DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Usuarios.class);
         try {
             List<Usuarios> logins = DADAO.query(
              DADAO.queryBuilder().where().eq(Usuarios.Confere, Login) 
