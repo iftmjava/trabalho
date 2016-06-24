@@ -8,7 +8,7 @@ public class Usuarios {
     
     public static final String USUARIO_CAMPO = "login";
     
-    @DatabaseField(id = true)
+    @DatabaseField(generatedId  = true,allowGeneratedIdInsert=true)
     private int id;
     @DatabaseField(columnName = USUARIO_CAMPO)
     private String login;

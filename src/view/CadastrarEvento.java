@@ -8,6 +8,7 @@ package view;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Evento;
@@ -61,7 +62,7 @@ public class CadastrarEvento extends javax.swing.JDialog {
         jLabel2.setText("Data de Criacao:");
 
         try {
-            DatacTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            DatacTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -69,7 +70,7 @@ public class CadastrarEvento extends javax.swing.JDialog {
         jLabel3.setText("Data do Fim:");
 
         try {
-            DatafTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            DatafTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-##-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -230,7 +231,12 @@ public class CadastrarEvento extends javax.swing.JDialog {
     
     public LocalDate trataData(String a){
         LocalDate data;
-        String  b, c, d;
+        
+       DateTimeFormatter formater = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+       LocalDate parsedDate = LocalDate.parse(a, formater);
+       data = parsedDate;
+        
+       /* String  b, c, d;
         int ano, mes, dia;
         b = a.substring(0,2);
         c = a.substring(3,6);
@@ -238,7 +244,7 @@ public class CadastrarEvento extends javax.swing.JDialog {
         ano = Integer.parseInt(d);
         mes = Integer.parseInt(c);
         dia = Integer.parseInt(b);
-        data = LocalDate.of(ano,mes,dia);
+        data = LocalDate.of(ano,mes,dia);*/
         return data;
     }
 
