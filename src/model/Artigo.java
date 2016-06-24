@@ -13,7 +13,7 @@ public class Artigo {
     private String area;
     @DatabaseField
     private String Resumo;
-    @DatabaseField(id = true)
+    @DatabaseField(generatedId  = true,allowGeneratedIdInsert=true)
     private static int id = 0;
     @DatabaseField(foreign = true)
     private Usuarios avaliador;
