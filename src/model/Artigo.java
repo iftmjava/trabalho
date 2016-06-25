@@ -5,6 +5,7 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "artigo")
 public class Artigo {
+
     @DatabaseField
     private String nome;
     @DatabaseField(foreign = true)
@@ -13,7 +14,7 @@ public class Artigo {
     private String area;
     @DatabaseField
     private String Resumo;
-    @DatabaseField(generatedId  = true,allowGeneratedIdInsert=true)
+    @DatabaseField(generatedId = true, allowGeneratedIdInsert = true)
     private static int id;
     @DatabaseField(foreign = true)
     private Usuarios avaliador;
@@ -26,6 +27,8 @@ public class Artigo {
     @DatabaseField(foreign = true)
     public Evento event;
 
+    public final Usuarios Confere = autor;
+
     public String getNome() {
         return nome;
     }
@@ -37,7 +40,7 @@ public class Artigo {
     public Usuarios getAutor() {
         return autor;
     }
-    
+
     public Notas getNotas() {
         return notas;
     }
@@ -105,6 +108,5 @@ public class Artigo {
     public void setEvent(Evento event) {
         this.event = event;
     }
-    
-    
+
 }

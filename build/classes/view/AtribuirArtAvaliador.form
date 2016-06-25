@@ -30,7 +30,7 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="384" max="32767" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="189" max="-2" attributes="0"/>
+              <Component id="BotaoAtribuir" min="-2" pref="189" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -38,10 +38,10 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="216" max="32767" attributes="0"/>
+              <EmptySpace pref="217" max="32767" attributes="0"/>
               <Component id="jComboBox1" min="-2" pref="45" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="60" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+              <Component id="BotaoAtribuir" min="-2" pref="60" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -60,10 +60,13 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="BotaoAtribuir">
       <Properties>
         <Property name="text" type="java.lang.String" value="Atribuir"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoAtribuirActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

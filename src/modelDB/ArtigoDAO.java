@@ -12,58 +12,66 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.Artigo;
+import model.Usuarios;
 
+public class ArtigoDAO implements DAO<Artigo> {
 
-public class ArtigoDAO implements DAO<Artigo>{
-
- private Connection connection = null;
+    private Connection connection = null;
     //Metodos do ArtigoDAO
-    
+
     public ArtigoDAO() {
-		this.connection = new ConnectionFactory().getConnection();
-	}
-    
-    
-    
-     @Override
-    public void insert(Artigo a) throws SQLException{
-         Dao<Artigo, String> accountDao =
-            DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Artigo.class);
-      
-         accountDao.create(a);
-         
-       }
-
-    @Override
-    public void delete(Artigo a) throws SQLException{
-    Dao<Artigo, String> accountDao =
-            DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Artigo.class);
-
-    accountDao.delete(a);
-    
-       
+        this.connection = new ConnectionFactory().getConnection();
     }
 
     @Override
-    public void alterar(Artigo a) throws SQLException{
-          Dao<Artigo, String> accountDao =
-            DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Artigo.class);
-       
-         accountDao.update(a);
-       
-         
+    public void insert(Artigo a) throws SQLException {
+        Dao<Artigo, String> accountDao
+                = DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Artigo.class);
+
+        accountDao.create(a);
+
     }
 
     @Override
-    public List<Artigo> listar() throws SQLException{
-     Dao<Artigo, String> DADAO =
-            DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Artigo.class);
-        
+    public void delete(Artigo a) throws SQLException {
+        Dao<Artigo, String> accountDao
+                = DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Artigo.class);
+
+        accountDao.delete(a);
+
+    }
+
+    @Override
+    public void alterar(Artigo a) throws SQLException {
+        Dao<Artigo, String> accountDao
+                = DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Artigo.class);
+
+        accountDao.update(a);
+
+    }
+
+    @Override
+    public List<Artigo> listar() throws SQLException {
+        Dao<Artigo, String> DADAO
+                = DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Artigo.class);
+
         List<Artigo> Artigos = DADAO.queryForAll();
-        
-		return Artigos;
-         
-         
+
+        return Artigos;
+
     }
-   
+
+    public List<Artigo> target(Artigo x) throws SQLException {
+        Dao<Artigo, String> DADAO
+                = DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Artigo.class);
+        try {
+            List<Artigo> art = DADAO.query(
+                    DADAO.queryBuilder().where().eq(Usuarios.Confere, x)
+                    .prepare());
+            return art;
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Login Invalido");
+        }
+        return null;
+    }
 }
