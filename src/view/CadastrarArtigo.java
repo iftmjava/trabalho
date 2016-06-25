@@ -6,6 +6,8 @@
 package view;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -16,27 +18,24 @@ import model.Usuarios;
 import modelDB.ArtigoDAO;
 import modelDB.EventoDAO;
 import modelDB.UsuarioDAO;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author Euclebio
- */
 public class CadastrarArtigo extends javax.swing.JDialog {
 
     /**
      * Creates new form CadastrarArtigo
      */
     public Usuarios x;
+
     public CadastrarArtigo(java.awt.Frame parent, boolean modal, Usuarios x) throws SQLException {
         super(parent, modal);
         initComponents();
         atualizaTabela();
-        
+
     }
-    
+
     private void atualizaTabela() throws SQLException {
         EventoDAO parameter = new EventoDAO();
-       
         list1.clear();
         List<Evento> objetos = parameter.listar();
         list1.addAll(objetos);
@@ -46,8 +45,6 @@ public class CadastrarArtigo extends javax.swing.JDialog {
             table.scrollRectToVisible(table.getCellRect(linha, linha, true)); //arruma o scroll
         }
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -76,7 +73,7 @@ public class CadastrarArtigo extends javax.swing.JDialog {
         table = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 400));
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jLabel1.setText("Nome: ");
 
@@ -107,10 +104,14 @@ public class CadastrarArtigo extends javax.swing.JDialog {
                     .addComponent(jLabel1))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(AreaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NomeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(NomeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(AreaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -136,8 +137,13 @@ public class CadastrarArtigo extends javax.swing.JDialog {
                 .addGap(20, 20, 20))
         );
 
+        table.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
         org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, list1, table);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nome}"));
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${id}"));
+        columnBinding.setColumnName("Id");
+        columnBinding.setColumnClass(Integer.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nome}"));
         columnBinding.setColumnName("Nome");
         columnBinding.setColumnClass(String.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${area}"));
@@ -146,15 +152,8 @@ public class CadastrarArtigo extends javax.swing.JDialog {
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${edicao}"));
         columnBinding.setColumnName("Edicao");
         columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${data_criacao}"));
-        columnBinding.setColumnName("Data_criacao");
-        columnBinding.setColumnClass(Long.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${data_limite}"));
-        columnBinding.setColumnName("Data_limite");
-        columnBinding.setColumnClass(Long.class);
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();
-
         jScrollPane2.setViewportView(table);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -205,30 +204,32 @@ public class CadastrarArtigo extends javax.swing.JDialog {
         EventoDAO parameter = new EventoDAO();
         Evento evento = new Evento();
         int LinhaSelecionada = table.getSelectedRow();
-         evento = list1.get(LinhaSelecionada);
-         
-         
-        // box.setSelectedItem( );
-        artigo.setNome(NomeTextField.getText());
-        artigo.setAutor(x);
-        artigo.setArea(AreaTextField.getText());
-        artigo.setResumo(TextareaResumo.getText());
-        artigo.setAprovado(false);
-        artigo.setAvaliador(null);
-        artigo.setComentario("");
-        artigo.setNotas(null);        
-        artigo.setEvent(evento);
-        try {
-            dao.insert(artigo);
-        } catch (SQLException ex) {
-            Logger.getLogger(CadastrarArtigo.class.getName()).log(Level.SEVERE, null, ex);
+        evento = list1.get(LinhaSelecionada);
+        LocalDate dataevento = LocalDate.ofEpochDay(evento.getData_limite());;
+        LocalDate hoje = LocalDate.now();
+        if (hoje.isAfter(dataevento)) {
+            JOptionPane.showMessageDialog(null, "A data limite deste evento foi atingida, não é mais possivel submeter artigos");
+        } else {
+            //evento.getData_limite();
+            // box.setSelectedItem( );
+            artigo.setNome(NomeTextField.getText());
+            artigo.setAutor(x);
+            artigo.setArea(AreaTextField.getText());
+            artigo.setResumo(TextareaResumo.getText());
+            artigo.setAprovado(false);
+            artigo.setAvaliador(null);
+            artigo.setComentario("");
+            artigo.setNotas(null);
+            artigo.setEvent(evento);
+            try {
+                dao.insert(artigo);
+            } catch (SQLException ex) {
+                Logger.getLogger(CadastrarArtigo.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         dispose();
     }//GEN-LAST:event_enviarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
