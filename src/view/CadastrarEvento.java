@@ -179,6 +179,7 @@ public class CadastrarEvento extends javax.swing.JDialog {
             evento.setEdicao(Integer.parseInt(EdicaoTextField.getText()));
             evento.setArea(AreaTextField.getText());
             evento.setLimiteArtigos(Integer.parseInt(LimiteaTextField.getText()));
+            dispose();
         try {
             dao.insert(evento);
         } catch (SQLException ex) {

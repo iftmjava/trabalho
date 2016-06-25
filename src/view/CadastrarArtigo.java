@@ -136,7 +136,7 @@ public class CadastrarArtigo extends javax.swing.JDialog {
         artigo.setAutor(this.x);
         artigo.setArea(AreaTextField.getText());
         artigo.setResumo(TextareaResumo.getText());
-        
+        dispose();
     }//GEN-LAST:event_enviarActionPerformed
 
     /**

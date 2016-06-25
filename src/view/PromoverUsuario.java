@@ -159,6 +159,7 @@ public class PromoverUsuario extends javax.swing.JDialog {
          int LinhaSelecionada = Tableaut.getSelectedRow();
          temp = list.get(LinhaSelecionada);
          temp.setTipo((String) Tipos.getSelectedItem());
+         dispose();
         try {
             dao.alterar(temp);
         } catch (SQLException ex) {

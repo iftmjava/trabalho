@@ -167,6 +167,7 @@ public class VerificarAvaliacao extends javax.swing.JDialog {
     int LinhaSelecionada = Tabela.getSelectedRow();
     temp = (Artigo) list1.get(LinhaSelecionada);
     temp.setAprovado(true);
+    dispose();
         try {
             dao.alterar(temp);
         } catch (SQLException ex) {
