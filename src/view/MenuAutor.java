@@ -5,6 +5,9 @@
  */
 package view;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Usuarios;
 
 /**
@@ -107,8 +110,13 @@ public class MenuAutor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoEnviarArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEnviarArtigoActionPerformed
-        CadastrarArtigo cadastro = new CadastrarArtigo(this, true, this.x);
-        cadastro.setSize(600,450);
+        CadastrarArtigo cadastro = null;
+        try {
+            cadastro = new CadastrarArtigo(this, true, this.x);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuAutor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        cadastro.setSize(700,600);
         cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         cadastro.setLocationRelativeTo(null);
         cadastro.setVisible(true);

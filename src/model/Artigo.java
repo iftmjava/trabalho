@@ -14,7 +14,7 @@ public class Artigo {
     @DatabaseField
     private String Resumo;
     @DatabaseField(generatedId  = true,allowGeneratedIdInsert=true)
-    private static int id = 0;
+    private static int id;
     @DatabaseField(foreign = true)
     private Usuarios avaliador;
     @DatabaseField
@@ -23,6 +23,8 @@ public class Artigo {
     private boolean aprovado = false;
     @DatabaseField(foreign = true)
     public Notas notas;
+    @DatabaseField(foreign = true)
+    public Evento event;
 
     public String getNome() {
         return nome;
@@ -94,6 +96,14 @@ public class Artigo {
 
     public void setAprovado(boolean aprovado) {
         this.aprovado = aprovado;
+    }
+
+    public Evento getEvent() {
+        return event;
+    }
+
+    public void setEvent(Evento event) {
+        this.event = event;
     }
     
     
