@@ -25,7 +25,7 @@ public class EventoDAO implements DAO<Evento> {
         Dao<Evento, String> accountDao =
             DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Evento.class);
         
-        accountDao.createOrUpdate(a);
+        accountDao.create(a);
     }
 
     @Override

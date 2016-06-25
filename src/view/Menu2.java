@@ -141,7 +141,7 @@ public class Menu2 extends javax.swing.JFrame {
 
     private void BotaoRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoRegistrarActionPerformed
         Registrar cadastro = new Registrar(this, true);
-        cadastro.setSize(800,600);
+        cadastro.setSize(800, 600);
         cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         cadastro.setLocationRelativeTo(null);
         cadastro.setVisible(true);
@@ -153,50 +153,40 @@ public class Menu2 extends javax.swing.JFrame {
         Usuarios temp = new Usuarios();
         String login;
         login = Login.getText();
-        
-  
-        
-        
+
         try {
             temp = dao.target(login);
         } catch (SQLException ex) {
             Logger.getLogger(Menu2.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if(temp == null){
+        if (temp == null) {
             JOptionPane.showMessageDialog(null, "Login Invalido");
-        }
-        else{
-            if(temp.getSenha().equals(Senha.getText())){
-                
-                if(temp.getTipo().equals("CHAIR")){
-                    this.dispose();
-                    MenuChair chair = new MenuChair();
-                    chair.setSize(500,520);
-                    chair.setDefaultCloseOperation(EXIT_ON_CLOSE);
-                    chair.setLocationRelativeTo(null);
-                    chair.setVisible(true);
-                }
-                else{
-                    if(temp.getTipo().equals("Autor")){
-                        this.dispose();
-                        MenuAutor autor = new MenuAutor(temp);
-                        autor.setSize(500,500);
-                        autor.setDefaultCloseOperation(EXIT_ON_CLOSE);
-                        autor.setLocationRelativeTo(null);
-                        autor.setVisible(true);
-                    }
-                    else{
-                        this.dispose();
-                        MenuAvaliador avaliador = new MenuAvaliador();
-                        avaliador.setSize(500,500);
-                        avaliador.setDefaultCloseOperation(EXIT_ON_CLOSE);
-                        avaliador.setLocationRelativeTo(null);
-                        avaliador.setVisible(true);
-                    }
-                }
+        } else if (temp.getSenha().equals(Senha.getText())) {
+
+            if (temp.getTipo().equals("CHAIR")) {
+                this.dispose();
+                MenuChair chair = new MenuChair();
+                chair.setSize(500, 520);
+                chair.setDefaultCloseOperation(EXIT_ON_CLOSE);
+                chair.setLocationRelativeTo(null);
+                chair.setVisible(true);
+            } else if (temp.getTipo().equals("Autor")) {
+                this.dispose();
+                MenuAutor autor = new MenuAutor(temp);
+                autor.setSize(500, 500);
+                autor.setDefaultCloseOperation(EXIT_ON_CLOSE);
+                autor.setLocationRelativeTo(null);
+                autor.setVisible(true);
+            } else {
+                this.dispose();
+                MenuAvaliador avaliador = new MenuAvaliador();
+                avaliador.setSize(500, 500);
+                avaliador.setDefaultCloseOperation(EXIT_ON_CLOSE);
+                avaliador.setLocationRelativeTo(null);
+                avaliador.setVisible(true);
             }
         }
-        
+
     }//GEN-LAST:event_BotaoLogarActionPerformed
 
     /**

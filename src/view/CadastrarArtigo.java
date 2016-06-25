@@ -210,7 +210,7 @@ public class CadastrarArtigo extends javax.swing.JDialog {
          
         // box.setSelectedItem( );
         artigo.setNome(NomeTextField.getText());
-        artigo.setAutor(this.x);
+        artigo.setAutor(x);
         artigo.setArea(AreaTextField.getText());
         artigo.setResumo(TextareaResumo.getText());
         artigo.setAprovado(false);
