@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import model.Artigo;
 import model.Evento;
 import model.Usuarios;
@@ -188,8 +189,13 @@ public class AtribuirArtAvaliador extends javax.swing.JDialog {
         art = listaArt.get(LinhaSelecionada);
         int LinhaSelecionada2 = TabelaAva.getSelectedRow();
         user = listaAva.get(LinhaSelecionada2);
+        if(user.getTipo().equals("Avaliador")){
         art.setAvaliador(user);
-        
+          dispose();
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Tipo nao pode avaliar");
+        }
         try {
             daoArt.alterar(art);
         } catch (SQLException ex) {
@@ -198,7 +204,7 @@ public class AtribuirArtAvaliador extends javax.swing.JDialog {
         
         
         
-        dispose();
+      
         
         
     }//GEN-LAST:event_BotaoAtribuirActionPerformed

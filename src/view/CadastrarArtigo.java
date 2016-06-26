@@ -206,6 +206,10 @@ public class CadastrarArtigo extends javax.swing.JDialog {
         if (hoje.isAfter(dataevento)) {
             JOptionPane.showMessageDialog(null, "A data limite deste evento foi atingida, não é mais possivel submeter artigos");
         } else {
+            if(evento.getLimiteArtigos() == 0){
+                JOptionPane.showMessageDialog(null,"Limite de Artigos atingidos");
+            }
+            else{
             //evento.getData_limite();
             // box.setSelectedItem( );
             artigo.setNome(NomeTextField.getText());
@@ -217,16 +221,19 @@ public class CadastrarArtigo extends javax.swing.JDialog {
             artigo.setComentario("");
             artigo.setNotas(null);
             artigo.setEvent(evento);
+            evento.setLimiteArtigos(evento.getLimiteArtigos() - 1);
             try {
                 dao.insert(artigo);
+                parameter.alterar(evento);
             } catch (SQLException ex) {
                 Logger.getLogger(CadastrarArtigo.class.getName()).log(Level.SEVERE, null, ex);
             }
+            dispose();
         }
-        dispose();
+        
     }//GEN-LAST:event_enviarActionPerformed
 
-   
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AreaTextField;

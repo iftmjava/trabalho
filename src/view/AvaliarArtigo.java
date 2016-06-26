@@ -266,16 +266,10 @@ ArtigoDAO parameter = new ArtigoDAO();
         int LinhaSelecionada = tableaArt.getSelectedRow();
         Artigo objeto = (Artigo) list1.get(LinhaSelecionada);
         b = objeto.getAvaliador();
-        if (temp.equals(b)){
+ 
              nota.setArtigo(objeto);
-        }
-        else {
-            JOptionPane.showMessageDialog(null,"Voce nao esta apto a avaliar este artigo");
-        }
-        
-        
-        nota.setLinguagem(Integer.parseInt((String) NotaLing.getSelectedItem()));
-  //Duas formas que nao sei se funcionam
+                    nota.setLinguagem(Integer.parseInt((String) NotaLing.getSelectedItem()));
+         //Duas formas que nao sei se funcionam
  
         nota.setOrganizacao(Integer.parseInt((String) NotaOrg.getSelectedItem()));
         nota.setQualidade(Integer.parseInt((String) NotaQua.getSelectedItem()));
@@ -296,6 +290,10 @@ ArtigoDAO parameter = new ArtigoDAO();
         }
         
         dispose();
+        
+        
+        
+ 
       
         
     }//GEN-LAST:event_saveActionPerformed
