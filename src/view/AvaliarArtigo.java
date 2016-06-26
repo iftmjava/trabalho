@@ -141,7 +141,7 @@ ArtigoDAO parameter = new ArtigoDAO();
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, tableaArt, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.area}"), areaT, org.jdesktop.beansbinding.BeanProperty.create("text"));
         bindingGroup.addBinding(binding);
 
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, tableaArt, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.autor.nome}"), autorT, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, tableaArt, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.autor.login}"), autorT, org.jdesktop.beansbinding.BeanProperty.create("text"));
         bindingGroup.addBinding(binding);
 
         jLabel8.setText("Resumo:");
@@ -294,6 +294,7 @@ ArtigoDAO parameter = new ArtigoDAO();
           private void atualizaTabela() throws SQLException {
         list1.clear();
         List<Artigo> objetos = parameter.listar();
+        
         list1.addAll(objetos);
         int linha = list1.size() - 1;
         if (linha >= 0) { //tem elementos na lista

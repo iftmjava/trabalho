@@ -4,6 +4,7 @@ import modelDB.DAO;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
+import com.j256.ormlite.stmt.PreparedQuery;
 import control.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -60,18 +61,17 @@ public class ArtigoDAO implements DAO<Artigo> {
         return Artigos;
 
     }
-
-  /* public List<Artigo> target(Usuarios x) throws SQLException {
+// sei se ta certo n
+   public List<Artigo> target(Usuarios x) throws SQLException {
         Dao<Artigo, String> DADAO
                 = DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Artigo.class);
+        String temp = "" + x.getId();
         try {
-            List<Artigo> art = DADAO.query(
-                    DADAO.queryBuilder().where().eq(x,Artigo.)
-                    .prepare());
+            List<Artigo> art = DADAO.query((PreparedQuery<Artigo>) DADAO.queryForId(temp).getAutor());                    
             return art;
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Login Invalido");
         }
         return null;
-    }*/
+    }
 }
