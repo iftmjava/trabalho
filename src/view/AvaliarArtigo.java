@@ -27,15 +27,16 @@ public class AvaliarArtigo extends javax.swing.JDialog {
     /**
      * Creates new form AvaliarArtigo
      */
-    Usuarios temp = new Usuarios();
+    Usuarios x = new Usuarios();
+
     public AvaliarArtigo(java.awt.Frame parent, boolean modal, Usuarios temp) throws SQLException {
         super(parent, modal);
         initComponents();
         atualizaTabela();
+        x = temp;
     }
-ArtigoDAO parameter = new ArtigoDAO();
+    ArtigoDAO parameter = new ArtigoDAO();
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -266,47 +267,53 @@ ArtigoDAO parameter = new ArtigoDAO();
         int LinhaSelecionada = tableaArt.getSelectedRow();
         Artigo objeto = (Artigo) list1.get(LinhaSelecionada);
         b = objeto.getAvaliador();
- 
-             nota.setArtigo(objeto);
-                    nota.setLinguagem(Integer.parseInt((String) NotaLing.getSelectedItem()));
-         //Duas formas que nao sei se funcionam
- 
-        nota.setOrganizacao(Integer.parseInt((String) NotaOrg.getSelectedItem()));
-        nota.setQualidade(Integer.parseInt((String) NotaQua.getSelectedItem()));
-        try {
-            notaD.insert(nota);
-        } catch (SQLException ex) {
-            Logger.getLogger(AvaliarArtigo.class.getName()).log(Level.SEVERE, null, ex);
+        int c1 = x.getId();
+        if (b != null) {
+            int c2 = b.getId();
+            if (c1 == c2) {
+
+                nota.setLinguagem(Integer.parseInt((String) NotaLing.getSelectedItem()));
+                //Duas formas que nao sei se funcionam
+
+                nota.setOrganizacao(Integer.parseInt((String) NotaOrg.getSelectedItem()));
+                nota.setQualidade(Integer.parseInt((String) NotaQua.getSelectedItem()));
+                nota.setArtigo(objeto);
+                try {
+                    notaD.insert(nota);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AvaliarArtigo.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                ArtigoDAO temp0 = new ArtigoDAO();
+                Artigo temp = new Artigo();
+                temp = objeto;
+                try {
+                    temp.setComentario(Comente.getText());
+                    temp.setNotas(nota);
+                    temp0.alterar(temp);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AvaliarArtigo.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Voce nao pode avaliar esse artigo");
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "avaliador ainda nao atribuido pelo chair");
         }
-        ArtigoDAO temp0 = new ArtigoDAO();
-        Artigo temp = new Artigo();
-        temp = objeto;
-        try {
-            temp.setComentario(Comente.getText());
-            temp.setNotas(nota);
-            temp0.alterar(temp);
-        } catch (SQLException ex) {
-            Logger.getLogger(AvaliarArtigo.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        dispose();
-        
-        
-        
- 
-      
-        
+
+
     }//GEN-LAST:event_saveActionPerformed
 
     private void NotaLingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotaLingActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NotaLingActionPerformed
 
-    
-          private void atualizaTabela() throws SQLException {
+    private void atualizaTabela() throws SQLException {
         list1.clear();
         List<Artigo> objetos = parameter.listar();
-        
+
         list1.addAll(objetos);
         int linha = list1.size() - 1;
         if (linha >= 0) { //tem elementos na lista
@@ -314,13 +321,10 @@ ArtigoDAO parameter = new ArtigoDAO();
             tableaArt.scrollRectToVisible(tableaArt.getCellRect(linha, linha, true)); //arruma o scroll
         }
     }
-          
-           
-          
+
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea Comente;

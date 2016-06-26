@@ -19,9 +19,10 @@ public class MenuAvaliador extends javax.swing.JFrame {
     /**
      * Creates new form MenuAvaliador
      */
-    Usuarios temp = new Usuarios();
+    Usuarios x = new Usuarios();
     public MenuAvaliador(Usuarios temp) {
         initComponents();
+        x = temp;
     }
 
     
@@ -100,7 +101,7 @@ public class MenuAvaliador extends javax.swing.JFrame {
     private void BotaoAvaliarArtigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAvaliarArtigosActionPerformed
         AvaliarArtigo cadastro = null;
         try {
-            cadastro = new AvaliarArtigo(this, true, temp);
+            cadastro = new AvaliarArtigo(this, true, x);
         } catch (SQLException ex) {
             Logger.getLogger(MenuAvaliador.class.getName()).log(Level.SEVERE, null, ex);
         }

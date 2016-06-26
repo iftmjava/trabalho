@@ -27,10 +27,11 @@ public class CadastrarArtigo extends javax.swing.JDialog {
      */
     public Usuarios x = new Usuarios();
 
-    public CadastrarArtigo(java.awt.Frame parent, boolean modal, Usuarios x) throws SQLException {
+    public CadastrarArtigo(java.awt.Frame parent, boolean modal, Usuarios temp) throws SQLException {
         super(parent, modal);
         initComponents();
         atualizaTabela();
+        x = temp;
 
     }
 
