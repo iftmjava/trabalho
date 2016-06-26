@@ -146,11 +146,21 @@
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
+          <BindingProperties>
+            <BindingProperty name="text" source="tabela" sourcePath="${selectedElement.linguagem}" target="NotaOrg" targetPath="text" updateStrategy="0" immediately="false">
+              <BindingParameter name="javax.swing.binding.ParameterKeys.TEXT_CHANGE_STRATEGY" value="javax.swing.binding.TextChangeStrategy.ON_TYPE"/>
+            </BindingProperty>
+          </BindingProperties>
         </Component>
         <Component class="javax.swing.JTextField" name="NotaLing">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
+          <BindingProperties>
+            <BindingProperty name="text" source="tabela" sourcePath="${selectedElement.qualidade}" target="NotaLing" targetPath="text" updateStrategy="0" immediately="false">
+              <BindingParameter name="javax.swing.binding.ParameterKeys.TEXT_CHANGE_STRATEGY" value="javax.swing.binding.TextChangeStrategy.ON_TYPE"/>
+            </BindingProperty>
+          </BindingProperties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NotaLingActionPerformed"/>
           </Events>
@@ -159,20 +169,25 @@
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
+          <BindingProperties>
+            <BindingProperty name="text" source="tabela" sourcePath="${selectedElement.organizacao}" target="NotaQua" targetPath="text" updateStrategy="0" immediately="false">
+              <BindingParameter name="javax.swing.binding.ParameterKeys.TEXT_CHANGE_STRATEGY" value="javax.swing.binding.TextChangeStrategy.ON_TYPE"/>
+            </BindingProperty>
+          </BindingProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nota 1"/>
+            <Property name="text" type="java.lang.String" value="Nota Ling:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nota2"/>
+            <Property name="text" type="java.lang.String" value="Nota Org"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nota 3 "/>
+            <Property name="text" type="java.lang.String" value="Nota Qua"/>
           </Properties>
         </Component>
       </SubComponents>

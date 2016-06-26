@@ -173,9 +173,6 @@
                       <Subbinding sourcePath="${avaliador}">
                         <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="model.Usuarios.class"/>
                       </Subbinding>
-                      <Subbinding sourcePath="${notas}">
-                        <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="model.Notas.class"/>
-                      </Subbinding>
                       <Subbinding sourcePath="${event}">
                         <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="model.Evento.class"/>
                       </Subbinding>
@@ -202,10 +199,25 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="NotaLing">
+          <BindingProperties>
+            <BindingProperty name="text" source="Tabela" sourcePath="${selectedElement.linguagem}" target="NotaLing" targetPath="text" updateStrategy="0" immediately="false">
+              <BindingParameter name="javax.swing.binding.ParameterKeys.TEXT_CHANGE_STRATEGY" value="javax.swing.binding.TextChangeStrategy.ON_TYPE"/>
+            </BindingProperty>
+          </BindingProperties>
         </Component>
         <Component class="javax.swing.JTextField" name="NotaOrg">
+          <BindingProperties>
+            <BindingProperty name="text" source="Tabela" sourcePath="${selectedElement.organizacao}" target="NotaOrg" targetPath="text" updateStrategy="0" immediately="false">
+              <BindingParameter name="javax.swing.binding.ParameterKeys.TEXT_CHANGE_STRATEGY" value="javax.swing.binding.TextChangeStrategy.ON_TYPE"/>
+            </BindingProperty>
+          </BindingProperties>
         </Component>
         <Component class="javax.swing.JTextField" name="NotaQua">
+          <BindingProperties>
+            <BindingProperty name="text" source="Tabela" sourcePath="${selectedElement.qualidade}" target="NotaQua" targetPath="text" updateStrategy="0" immediately="false">
+              <BindingParameter name="javax.swing.binding.ParameterKeys.TEXT_CHANGE_STRATEGY" value="javax.swing.binding.TextChangeStrategy.ON_TYPE"/>
+            </BindingProperty>
+          </BindingProperties>
         </Component>
       </SubComponents>
     </Container>

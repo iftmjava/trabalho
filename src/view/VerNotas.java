@@ -85,7 +85,14 @@ public class VerNotas extends javax.swing.JDialog {
 
         NotaOrg.setEditable(false);
 
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, tabela, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.linguagem}"), NotaOrg, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        bindingGroup.addBinding(binding);
+
         NotaLing.setEditable(false);
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, tabela, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.qualidade}"), NotaLing, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        bindingGroup.addBinding(binding);
+
         NotaLing.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NotaLingActionPerformed(evt);
@@ -94,11 +101,14 @@ public class VerNotas extends javax.swing.JDialog {
 
         NotaQua.setEditable(false);
 
-        jLabel1.setText("Nota 1");
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, tabela, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.organizacao}"), NotaQua, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        bindingGroup.addBinding(binding);
 
-        jLabel2.setText("Nota2");
+        jLabel1.setText("Nota Ling:");
 
-        jLabel3.setText("Nota 3 ");
+        jLabel2.setText("Nota Org");
+
+        jLabel3.setText("Nota Qua");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -170,11 +180,11 @@ public class VerNotas extends javax.swing.JDialog {
     private void copula() {
         int LinhaSelecionada = tabela.getSelectedRow();
         Artigo objeto = (Artigo) list1.get(LinhaSelecionada);
-        String str1 = "" + (objeto.getNotas().getLinguagem());
+        String str1 = "" + (objeto.getLinguagem());
         NotaLing.setText(str1);
-        String str2 = "" + (objeto.getNotas().getOrganizacao());
+        String str2 = "" + (objeto.getOrganizacao());
         NotaOrg.setText(str2);
-         String str3 = "" + (objeto.getNotas().getQualidade());
+         String str3 = "" + (objeto.getQualidade());
         NotaQua.setText(str3);
     }
  

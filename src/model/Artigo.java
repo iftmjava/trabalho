@@ -23,15 +23,15 @@ public class Artigo {
     @DatabaseField
     private boolean aprovado = false;
     @DatabaseField(foreign = true)
-    public Notas notas;
-    @DatabaseField(foreign = true)
     public Evento event;
-
-    /**
-     *
-     */
-   // public static final Usuarios tartge = new Usuarios();
-    //Confere = avaliador;
+    @DatabaseField
+    private int linguagem;
+    @DatabaseField
+    private int qualidade;
+    @DatabaseField
+    private int organizacao;
+    @DatabaseField
+    private int numAvaliadores;
 
     public String getNome() {
         return nome;
@@ -43,14 +43,6 @@ public class Artigo {
 
     public Usuarios getAutor() {
         return autor;
-    }
-
-    public Notas getNotas() {
-        return notas;
-    }
-
-    public void setNotas(Notas notas) {
-        this.notas = notas;
     }
 
     public void setAutor(Usuarios autor) {
@@ -112,5 +104,45 @@ public class Artigo {
     public void setEvent(Evento event) {
         this.event = event;
     }
+
+    public int getLinguagem() {
+        return linguagem;
+    }
+
+    public void setLinguagem(int linguagem) {
+        this.linguagem = linguagem;
+    }
+
+    public int getQualidade() {
+        return qualidade;
+    }
+
+    public void setQualidade(int qualidade) {
+        this.qualidade = qualidade;
+    }
+
+    public int getOrganizacao() {
+        return organizacao;
+    }
+
+    public void setOrganizacao(int organizacao) {
+        this.organizacao = organizacao;
+    }
+
+    public int getNumAvaliadores() {
+        return numAvaliadores;
+    }
+
+    public void setNumAvaliadores(int numAvaliadores) {
+        this.numAvaliadores = numAvaliadores;
+    }
+
+    /**
+     *
+     */
+   // public static final Usuarios tartge = new Usuarios();
+    //Confere = avaliador;
+
+    
 
 }

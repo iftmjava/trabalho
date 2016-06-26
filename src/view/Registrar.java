@@ -8,6 +8,7 @@ package view;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import model.Usuarios;
 import modelDB.UsuarioDAO;
 
@@ -172,6 +173,7 @@ public class Registrar extends javax.swing.JDialog {
         usuario.setTipo((String) Tipos.getSelectedItem());
         try {
             dao.insert(usuario);
+            JOptionPane.showMessageDialog(null, "Registro feito com sucesso");
         } catch (SQLException ex) {
             Logger.getLogger(Registrar.class.getName()).log(Level.SEVERE, null, ex);
         }

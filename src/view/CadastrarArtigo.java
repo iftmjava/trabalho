@@ -220,7 +220,10 @@ public class CadastrarArtigo extends javax.swing.JDialog {
             artigo.setAprovado(false);
             artigo.setAvaliador(null);
             artigo.setComentario("");
-            artigo.setNotas(null);
+            artigo.setLinguagem(0);
+            artigo.setOrganizacao(0);
+            artigo.setQualidade(0);
+            artigo.setNumAvaliadores(0);
             artigo.setEvent(evento);
             evento.setLimiteArtigos(evento.getLimiteArtigos() - 1);
             try {

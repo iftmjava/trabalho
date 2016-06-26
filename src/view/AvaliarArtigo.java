@@ -12,10 +12,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Artigo;
-import model.Notas;
 import model.Usuarios;
 import modelDB.ArtigoDAO;
-import modelDB.NotasDAO;
 import modelDB.UsuarioDAO;
 
 /**
@@ -261,39 +259,24 @@ public class AvaliarArtigo extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-        NotasDAO notaD = new NotasDAO();
-        Notas nota = new Notas();
         Usuarios b = new Usuarios();
         int LinhaSelecionada = tableaArt.getSelectedRow();
+        ArtigoDAO artDAO = new ArtigoDAO();
         Artigo objeto = (Artigo) list1.get(LinhaSelecionada);
         b = objeto.getAvaliador();
         int c1 = x.getId();
         if (b != null) {
             int c2 = b.getId();
             if (c1 == c2) {
-
-                nota.setLinguagem(Integer.parseInt((String) NotaLing.getSelectedItem()));
-                //Duas formas que nao sei se funcionam
-
-                nota.setOrganizacao(Integer.parseInt((String) NotaOrg.getSelectedItem()));
-                nota.setQualidade(Integer.parseInt((String) NotaQua.getSelectedItem()));
-                nota.setArtigo(objeto);
+                objeto.setLinguagem(Integer.parseInt((String) NotaLing.getSelectedItem()));
+                objeto.setOrganizacao(Integer.parseInt((String) NotaOrg.getSelectedItem()));
+                objeto.setQualidade(Integer.parseInt((String) NotaQua.getSelectedItem()));
+                objeto.setComentario(Comente.getText());
                 try {
-                    notaD.insert(nota);
+                    artDAO.alterar(objeto);
                 } catch (SQLException ex) {
                     Logger.getLogger(AvaliarArtigo.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                ArtigoDAO temp0 = new ArtigoDAO();
-                Artigo temp = new Artigo();
-                temp = objeto;
-                try {
-                    temp.setComentario(Comente.getText());
-                    temp.setNotas(nota);
-                    temp0.alterar(temp);
-                } catch (SQLException ex) {
-                    Logger.getLogger(AvaliarArtigo.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Voce nao pode avaliar esse artigo");

@@ -98,9 +98,6 @@ public class VerificarAvaliacao extends javax.swing.JDialog {
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${avaliador}"));
         columnBinding.setColumnName("Avaliador");
         columnBinding.setColumnClass(model.Usuarios.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${notas}"));
-        columnBinding.setColumnName("Notas");
-        columnBinding.setColumnClass(model.Notas.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${event}"));
         columnBinding.setColumnName("Event");
         columnBinding.setColumnClass(model.Evento.class);
@@ -129,6 +126,15 @@ public class VerificarAvaliacao extends javax.swing.JDialog {
         jLabel2.setText("Nota Org");
 
         jLabel3.setText("Nota Qua");
+
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, Tabela, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.linguagem}"), NotaLing, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        bindingGroup.addBinding(binding);
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, Tabela, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.organizacao}"), NotaOrg, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        bindingGroup.addBinding(binding);
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, Tabela, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.qualidade}"), NotaQua, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        bindingGroup.addBinding(binding);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -207,11 +213,11 @@ public class VerificarAvaliacao extends javax.swing.JDialog {
     int LinhaSelecionada = Tabela.getSelectedRow();
     temp = (Artigo) list1.get(LinhaSelecionada);
     
-     String str1 = String.valueOf(temp.getNotas().getLinguagem());
+     String str1 = String.valueOf(temp.getLinguagem());
         NotaLing.setText(str1);
-        String str2 =  String.valueOf(temp.getNotas().getOrganizacao());
+        String str2 =  String.valueOf(temp.getOrganizacao());
         NotaOrg.setText(str2);
-         String str3 =String.valueOf(temp.getNotas().getQualidade());
+         String str3 =String.valueOf(temp.getQualidade());
         NotaQua.setText(str3);
     
     
