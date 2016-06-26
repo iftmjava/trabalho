@@ -166,8 +166,13 @@ public class MenuChair extends javax.swing.JFrame {
     }//GEN-LAST:event_BotaoPromoverAutorActionPerformed
 
     private void BotaoAtribuirArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAtribuirArtigoActionPerformed
-        AtribuirArtAvaliador cadastro = new AtribuirArtAvaliador(this, true);
-        cadastro.setSize(600,430);
+        AtribuirArtAvaliador cadastro = null;
+        try {
+            cadastro = new AtribuirArtAvaliador(this, true);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuChair.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        cadastro.setSize(750,430);
         cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         cadastro.setLocationRelativeTo(null);
         cadastro.setVisible(true);

@@ -165,6 +165,7 @@ public class PromoverUsuario extends javax.swing.JDialog {
         } catch (SQLException ex) {
             Logger.getLogger(PromoverUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
+        dispose();
         
     }//GEN-LAST:event_SalvarActionPerformed
 

@@ -282,7 +282,7 @@ ArtigoDAO parameter = new ArtigoDAO();
             Logger.getLogger(AvaliarArtigo.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        
+        dispose();
       
         
     }//GEN-LAST:event_saveActionPerformed
