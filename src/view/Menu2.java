@@ -179,7 +179,7 @@ public class Menu2 extends javax.swing.JFrame {
                 autor.setVisible(true);
             } else {
                 this.dispose();
-                MenuAvaliador avaliador = new MenuAvaliador();
+                MenuAvaliador avaliador = new MenuAvaliador(temp);
                 avaliador.setSize(500, 500);
                 avaliador.setDefaultCloseOperation(EXIT_ON_CLOSE);
                 avaliador.setLocationRelativeTo(null);

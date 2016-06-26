@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import model.Artigo;
 import model.Notas;
 import model.Usuarios;
@@ -26,12 +27,15 @@ public class AvaliarArtigo extends javax.swing.JDialog {
     /**
      * Creates new form AvaliarArtigo
      */
-    public AvaliarArtigo(java.awt.Frame parent, boolean modal) throws SQLException {
+    Usuarios temp = new Usuarios();
+    public AvaliarArtigo(java.awt.Frame parent, boolean modal, Usuarios temp) throws SQLException {
         super(parent, modal);
         initComponents();
         atualizaTabela();
     }
 ArtigoDAO parameter = new ArtigoDAO();
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -261,9 +265,13 @@ ArtigoDAO parameter = new ArtigoDAO();
         Usuarios b = new Usuarios();
         int LinhaSelecionada = tableaArt.getSelectedRow();
         Artigo objeto = (Artigo) list1.get(LinhaSelecionada);
-        b = objeto.autor;
-        
-        nota.setArtigo(objeto);
+        b = objeto.getAvaliador();
+        if (temp.equals(b)){
+             nota.setArtigo(objeto);
+        }
+        else {
+            JOptionPane.showMessageDialog(null,"Voce nao esta apto a avaliar este artigo");
+        }
         
         
         nota.setLinguagem(Integer.parseInt((String) NotaLing.getSelectedItem()));
@@ -314,49 +322,7 @@ ArtigoDAO parameter = new ArtigoDAO();
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AvaliarArtigo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AvaliarArtigo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AvaliarArtigo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AvaliarArtigo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                AvaliarArtigo dialog = null;
-                try {
-                    dialog = new AvaliarArtigo(new javax.swing.JFrame(), true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(AvaliarArtigo.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea Comente;
