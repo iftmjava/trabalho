@@ -68,7 +68,7 @@ public class ArtigoDAO implements DAO<Artigo> {
         int temp =  x.getId();
         try {
           //  List<Artigo> art = DADAO.query((PreparedQuery<Artigo>) DADAO.query); 
-            List<Artigo> art = (List<Artigo>) DADAO.queryBuilder().where().eq("autor_id", 0);
+            List<Artigo> art = (List<Artigo>) DADAO.queryBuilder().where().eq("autor_id", temp);
             return art;
         } catch (IndexOutOfBoundsException e) {
             System.out.println("N existe nada?");

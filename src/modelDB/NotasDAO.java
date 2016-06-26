@@ -25,7 +25,7 @@ public class NotasDAO implements DAO<Notas> {
     public void insert(Notas a) throws SQLException{
         Dao<Notas, String> accountDao =
         DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Notas.class);
-        accountDao.create(a);
+        accountDao.createOrUpdate(a);
        }
 
     @Override

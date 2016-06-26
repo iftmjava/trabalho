@@ -125,7 +125,7 @@ public class MenuAutor extends javax.swing.JFrame {
     private void BotaoNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoNotasActionPerformed
         VerNotas cadastro = null;
         try {
-            cadastro = new VerNotas(this, true);
+            cadastro = new VerNotas(this, true, x);
         } catch (SQLException ex) {
             Logger.getLogger(MenuAutor.class.getName()).log(Level.SEVERE, null, ex);
         }
