@@ -205,7 +205,7 @@ ArtigoDAO parameter = new ArtigoDAO();
                                         .addComponent(jLabel4)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)))
                         .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(99, 99, 99))))
         );
@@ -237,7 +237,7 @@ ArtigoDAO parameter = new ArtigoDAO();
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
@@ -246,8 +246,7 @@ ArtigoDAO parameter = new ArtigoDAO();
                             .addComponent(jLabel3)
                             .addComponent(NotaOrg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(44, 44, 44)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         bindingGroup.bind();
@@ -264,8 +263,8 @@ ArtigoDAO parameter = new ArtigoDAO();
         nota.setLinguagem(Integer.parseInt((String) NotaLing.getSelectedItem()));
   //Duas formas que nao sei se funcionam
  
-        nota.setOrganizacao((int) NotaOrg.getSelectedItem());
-        nota.setQualidade((int) NotaQua.getSelectedItem());
+        nota.setOrganizacao(Integer.parseInt((String) NotaOrg.getSelectedItem()));
+        nota.setQualidade(Integer.parseInt((String) NotaQua.getSelectedItem()));
         try {
             notaD.insert(nota);
         } catch (SQLException ex) {

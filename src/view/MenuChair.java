@@ -163,6 +163,7 @@ public class MenuChair extends javax.swing.JFrame {
         cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         cadastro.setLocationRelativeTo(null);
         cadastro.setVisible(true);
+        
     }//GEN-LAST:event_BotaoPromoverAutorActionPerformed
 
     private void BotaoAtribuirArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAtribuirArtigoActionPerformed
@@ -176,6 +177,7 @@ public class MenuChair extends javax.swing.JFrame {
         cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         cadastro.setLocationRelativeTo(null);
         cadastro.setVisible(true);
+        
     }//GEN-LAST:event_BotaoAtribuirArtigoActionPerformed
 
     /**
