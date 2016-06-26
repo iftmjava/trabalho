@@ -5,6 +5,18 @@
  */
 package view;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.Artigo;
+import model.Evento;
+import model.Usuarios;
+import modelDB.ArtigoDAO;
+import modelDB.EventoDAO;
+import modelDB.UsuarioDAO;
+
 /**
  *
  * @author Euclebio
@@ -14,11 +26,37 @@ public class AtribuirArtAvaliador extends javax.swing.JDialog {
     /**
      * Creates new form AtribuirArtAvaliador
      */
-    public AtribuirArtAvaliador(java.awt.Frame parent, boolean modal) {
+    public AtribuirArtAvaliador(java.awt.Frame parent, boolean modal) throws SQLException {
         super(parent, modal);
         initComponents();
+        atualizaTabelaArt();
+        atualizaTabelaAva();
+    }
+    
+    
+    private void atualizaTabelaArt() throws SQLException {
+        ArtigoDAO parameter1 = new ArtigoDAO();
+        listaArt.clear();
+        List<Artigo> objetos = parameter1.listar();
+        listaArt.addAll(objetos);
+        int linha = listaArt.size() - 1;
+        if (linha >= 0) { //tem elementos na lista
+            TabelaArt.setRowSelectionInterval(linha, linha); //linhas selecioandas
+            TabelaArt.scrollRectToVisible(TabelaArt.getCellRect(linha, linha, true)); //arruma o scroll
+        }
     }
 
+       private void atualizaTabelaAva() throws SQLException {
+        UsuarioDAO parameter2 = new UsuarioDAO();
+        listaAva.clear();
+        List<Usuarios> objetos = parameter2.listar();
+        listaAva.addAll(objetos);
+        int linha = listaAva.size() - 1;
+        if (linha >= 0) { //tem elementos na lista
+            TabelaAva.setRowSelectionInterval(linha, linha); //linhas selecioandas
+            TabelaAva.scrollRectToVisible(TabelaAva.getCellRect(linha, linha, true)); //arruma o scroll
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,12 +66,17 @@ public class AtribuirArtAvaliador extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
+        listaArt = org.jdesktop.observablecollections.ObservableCollections.observableList(new ArrayList<Artigo>());
+        listaAva = org.jdesktop.observablecollections.ObservableCollections.observableList(new ArrayList<Usuarios>());
         BotaoAtribuir = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TabelaArt = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TabelaAva = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Avaliadores" }));
 
         BotaoAtribuir.setText("Atribuir");
         BotaoAtribuir.addActionListener(new java.awt.event.ActionListener() {
@@ -42,25 +85,80 @@ public class AtribuirArtAvaliador extends javax.swing.JDialog {
             }
         });
 
+        TabelaArt.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(TabelaArt);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+        );
+
+        TabelaAva.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(TabelaAva);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 30, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(384, Short.MAX_VALUE)
-                .addComponent(BotaoAtribuir, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(BotaoAtribuir, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(217, Short.MAX_VALUE)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(88, 88, 88)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(BotaoAtribuir, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
@@ -69,7 +167,27 @@ public class AtribuirArtAvaliador extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoAtribuirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAtribuirActionPerformed
-            
+        ArtigoDAO daoArt = new ArtigoDAO();
+        Artigo art = new Artigo();
+        UsuarioDAO daoUs = new UsuarioDAO();
+        Usuarios user = new Usuarios();
+        int LinhaSelecionada = TabelaArt.getSelectedRow();
+        art = listaArt.get(LinhaSelecionada);
+        int LinhaSelecionada2 = TabelaAva.getSelectedRow();
+        user = listaAva.get(LinhaSelecionada2);
+        art.setAvaliador(user);
+        
+        try {
+            daoArt.alterar(art);
+        } catch (SQLException ex) {
+            Logger.getLogger(AtribuirArtAvaliador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        
+        
+        
     }//GEN-LAST:event_BotaoAtribuirActionPerformed
 
     /**
@@ -102,7 +220,12 @@ public class AtribuirArtAvaliador extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                AtribuirArtAvaliador dialog = new AtribuirArtAvaliador(new javax.swing.JFrame(), true);
+                AtribuirArtAvaliador dialog = null;
+                try {
+                    dialog = new AtribuirArtAvaliador(new javax.swing.JFrame(), true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AtribuirArtAvaliador.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -116,6 +239,15 @@ public class AtribuirArtAvaliador extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoAtribuir;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JTable TabelaArt;
+    private javax.swing.JTable TabelaAva;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private java.util.List<Artigo> listaArt;
+    private java.util.List<Usuarios> listaAva;
     // End of variables declaration//GEN-END:variables
+
+   
 }
