@@ -186,7 +186,10 @@ public class Menu2 extends javax.swing.JFrame {
                 avaliador.setVisible(true);
             }
         }
-
+        
+        else{
+            JOptionPane.showMessageDialog(null, "Senha invalida");
+        }
     }//GEN-LAST:event_BotaoLogarActionPerformed
 
     /**
