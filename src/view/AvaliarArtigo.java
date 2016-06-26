@@ -12,8 +12,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Artigo;
 import model.Notas;
+import model.Usuarios;
 import modelDB.ArtigoDAO;
 import modelDB.NotasDAO;
+import modelDB.UsuarioDAO;
 
 /**
  *
@@ -300,6 +302,9 @@ ArtigoDAO parameter = new ArtigoDAO();
             tableaArt.scrollRectToVisible(tableaArt.getCellRect(linha, linha, true)); //arruma o scroll
         }
     }
+          
+           
+          
     /**
      * @param args the command line arguments
      */
