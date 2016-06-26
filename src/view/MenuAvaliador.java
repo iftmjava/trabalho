@@ -100,7 +100,7 @@ public class MenuAvaliador extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(MenuAvaliador.class.getName()).log(Level.SEVERE, null, ex);
         }
-        cadastro.setSize(800,600);
+        cadastro.setSize(1000,750);
         cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         cadastro.setLocationRelativeTo(null);
         cadastro.setVisible(true);
