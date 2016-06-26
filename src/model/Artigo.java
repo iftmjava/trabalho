@@ -27,7 +27,11 @@ public class Artigo {
     @DatabaseField(foreign = true)
     public Evento event;
 
-    public final Usuarios Confere = autor;
+    /**
+     *
+     */
+   // public static final Usuarios tartge = new Usuarios();
+    //Confere = avaliador;
 
     public String getNome() {
         return nome;
