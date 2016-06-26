@@ -25,7 +25,8 @@ public class VerNotas extends javax.swing.JDialog {
      * Creates new form VerNotas
      */
     public Usuarios x;
-    public VerNotas(java.awt.Frame parent, boolean modal,Usuarios x) throws SQLException {
+    
+    public VerNotas(java.awt.Frame parent, boolean modal) throws SQLException {
         super(parent, modal);
         initComponents();
         atualizaTabela();
@@ -33,9 +34,7 @@ public class VerNotas extends javax.swing.JDialog {
     }
    private ArtigoDAO parameter = new ArtigoDAO();
 
-    private VerNotas(JFrame jFrame, boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -216,7 +215,11 @@ public class VerNotas extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 VerNotas dialog = null;
-                dialog = new VerNotas(new javax.swing.JFrame(), true);
+                try {
+                    dialog = new VerNotas(new javax.swing.JFrame(), true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(VerNotas.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

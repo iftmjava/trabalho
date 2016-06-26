@@ -19,7 +19,7 @@ public class MenuAutor extends javax.swing.JFrame {
     /**
      * Creates new form MenuAutor
      */
-    public Usuarios x;
+    public Usuarios x = new Usuarios();
     public MenuAutor(Usuarios x) {
         initComponents();
         
@@ -112,7 +112,7 @@ public class MenuAutor extends javax.swing.JFrame {
     private void BotaoEnviarArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEnviarArtigoActionPerformed
         CadastrarArtigo cadastro = null;
         try {
-            cadastro = new CadastrarArtigo(this, true, this.x);
+            cadastro = new CadastrarArtigo(this, true, x);
         } catch (SQLException ex) {
             Logger.getLogger(MenuAutor.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -125,7 +125,7 @@ public class MenuAutor extends javax.swing.JFrame {
     private void BotaoNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoNotasActionPerformed
         VerNotas cadastro = null;
         try {
-            cadastro = new VerNotas(this, true, x);
+            cadastro = new VerNotas(this, true);
         } catch (SQLException ex) {
             Logger.getLogger(MenuAutor.class.getName()).log(Level.SEVERE, null, ex);
         }
