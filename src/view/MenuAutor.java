@@ -123,8 +123,13 @@ public class MenuAutor extends javax.swing.JFrame {
     }//GEN-LAST:event_BotaoEnviarArtigoActionPerformed
 
     private void BotaoNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoNotasActionPerformed
-        VerNotas cadastro = new VerNotas(this, true);
-        cadastro.setSize(600,450);
+        VerNotas cadastro = null;
+        try {
+            cadastro = new VerNotas(this, true, x);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuAutor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        cadastro.setSize(800,500);
         cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         cadastro.setLocationRelativeTo(null);
         cadastro.setVisible(true);

@@ -18,6 +18,7 @@ public class MenuAvaliador extends javax.swing.JFrame {
     /**
      * Creates new form MenuAvaliador
      */
+    
     public MenuAvaliador() {
         initComponents();
     }

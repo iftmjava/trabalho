@@ -65,12 +65,13 @@ public class ArtigoDAO implements DAO<Artigo> {
    public List<Artigo> target(Usuarios x) throws SQLException {
         Dao<Artigo, String> DADAO
                 = DaoManager.createDao(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Artigo.class);
-        String temp = "" + x.getId();
+        int temp =  x.getId();
         try {
-            List<Artigo> art = DADAO.query((PreparedQuery<Artigo>) DADAO.queryForId(temp).getAutor());                    
+          //  List<Artigo> art = DADAO.query((PreparedQuery<Artigo>) DADAO.query); 
+            List<Artigo> art = (List<Artigo>) DADAO.queryBuilder().where().eq("autor_id", 0);
             return art;
         } catch (IndexOutOfBoundsException e) {
-            System.out.println("Login Invalido");
+            System.out.println("N existe nada?");
         }
         return null;
     }
