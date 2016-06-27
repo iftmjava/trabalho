@@ -213,12 +213,12 @@ public class VerificarAvaliacao extends javax.swing.JDialog {
     int LinhaSelecionada = Tabela.getSelectedRow();
     temp = (Artigo) list1.get(LinhaSelecionada);
     
-     String str1 = String.valueOf(temp.getLinguagem());
-        NotaLing.setText(str1);
-        String str2 =  String.valueOf(temp.getOrganizacao());
-        NotaOrg.setText(str2);
-         String str3 =String.valueOf(temp.getQualidade());
-        NotaQua.setText(str3);
+    String str1 = String.valueOf(temp.getLinguagem());
+    NotaLing.setText(str1);
+    String str2 =  String.valueOf(temp.getOrganizacao());
+    NotaOrg.setText(str2);
+    String str3 =String.valueOf(temp.getQualidade());
+    NotaQua.setText(str3);
     
     
     

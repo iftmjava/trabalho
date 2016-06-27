@@ -268,10 +268,18 @@ public class AvaliarArtigo extends javax.swing.JDialog {
         if (b != null) {
             int c2 = b.getId();
             if (c1 == c2) {
-                objeto.setLinguagem(Integer.parseInt((String) NotaLing.getSelectedItem()));
-                objeto.setOrganizacao(Integer.parseInt((String) NotaOrg.getSelectedItem()));
-                objeto.setQualidade(Integer.parseInt((String) NotaQua.getSelectedItem()));
+                if (objeto.getNumAvaliadores() == 0) {
+                    objeto.setLinguagem(Integer.parseInt((String) NotaLing.getSelectedItem()));
+                    objeto.setOrganizacao(Integer.parseInt((String) NotaOrg.getSelectedItem()));
+                    objeto.setQualidade(Integer.parseInt((String) NotaQua.getSelectedItem()));
+                } else {
+                    objeto.setLinguagem((Integer.parseInt((String) NotaLing.getSelectedItem()) + objeto.getLinguagem()) / 2);
+                    objeto.setOrganizacao((Integer.parseInt((String) NotaOrg.getSelectedItem()) + objeto.getOrganizacao()) / 2);
+                    objeto.setQualidade((Integer.parseInt((String) NotaQua.getSelectedItem()) + objeto.getQualidade()) / 2);
+                }
                 objeto.setComentario(Comente.getText());
+                objeto.setNumAvaliadores(objeto.getNumAvaliadores() + 1);
+                objeto.setAvaliador(null);
                 try {
                     artDAO.alterar(objeto);
                 } catch (SQLException ex) {

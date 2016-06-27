@@ -33,8 +33,7 @@ public class AtribuirArtAvaliador extends javax.swing.JDialog {
         atualizaTabelaArt();
         atualizaTabelaAva();
     }
-    
-    
+
     private void atualizaTabelaArt() throws SQLException {
         ArtigoDAO parameter1 = new ArtigoDAO();
         listaArt.clear();
@@ -47,7 +46,7 @@ public class AtribuirArtAvaliador extends javax.swing.JDialog {
         }
     }
 
-       private void atualizaTabelaAva() throws SQLException {
+    private void atualizaTabelaAva() throws SQLException {
         UsuarioDAO parameter2 = new UsuarioDAO();
         listaAva.clear();
         List<Usuarios> objetos = parameter2.listar();
@@ -58,6 +57,7 @@ public class AtribuirArtAvaliador extends javax.swing.JDialog {
             TabelaAva.scrollRectToVisible(TabelaAva.getCellRect(linha, linha, true)); //arruma o scroll
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -189,24 +189,23 @@ public class AtribuirArtAvaliador extends javax.swing.JDialog {
         art = listaArt.get(LinhaSelecionada);
         int LinhaSelecionada2 = TabelaAva.getSelectedRow();
         user = listaAva.get(LinhaSelecionada2);
-        if(user.getTipo().equals("Avaliador")){
-        art.setAvaliador(user);
-          dispose();
+        if (art.getAprovado() == false) {
+            if (user.getTipo().equals("Avaliador")) {
+                art.setAvaliador(user);
+                try {
+                    daoArt.alterar(art);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AtribuirArtAvaliador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Tipo nao pode avaliar");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "O artigo já foi aprovado, não é possivel adicionar avaliadores para o artigo");
         }
-        else {
-            JOptionPane.showMessageDialog(null, "Tipo nao pode avaliar");
-        }
-        try {
-            daoArt.alterar(art);
-        } catch (SQLException ex) {
-            Logger.getLogger(AtribuirArtAvaliador.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        
-      
-        
-        
+
+
     }//GEN-LAST:event_BotaoAtribuirActionPerformed
 
     /**
@@ -269,5 +268,4 @@ public class AtribuirArtAvaliador extends javax.swing.JDialog {
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 
-   
 }

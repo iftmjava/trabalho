@@ -67,11 +67,11 @@
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="NotaOrg" alignment="0" pref="157" max="32767" attributes="0"/>
-                              <Component id="NotaQua" alignment="0" max="32767" attributes="0"/>
-                              <Component id="NotaLing" alignment="0" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="NotaOrg" alignment="1" min="-2" pref="157" max="-2" attributes="0"/>
+                              <Component id="NotaLing" alignment="1" min="-2" pref="157" max="-2" attributes="0"/>
+                              <Component id="NotaQua" min="-2" pref="157" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -85,18 +85,18 @@
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="NotaOrg" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="NotaLing" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="NotaQua" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="NotaOrg" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="NotaLing" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <Component id="NotaQua" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="193" max="32767" attributes="0"/>
               </Group>
@@ -135,7 +135,23 @@
               <SubComponents>
                 <Component class="javax.swing.JTable" name="tabela">
                   <BindingProperties>
-                    <BindingProperty name="elements" source="list1" target="tabela" targetPath="elements" updateStrategy="0" immediately="true"/>
+                    <BindingProperty name="elements" source="list1" target="tabela" targetPath="elements" updateStrategy="0" immediately="true">
+                      <Subbinding sourcePath="${nome}">
+                        <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
+                      </Subbinding>
+                      <Subbinding sourcePath="${area}">
+                        <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
+                      </Subbinding>
+                      <Subbinding sourcePath="${resumo}">
+                        <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
+                      </Subbinding>
+                      <Subbinding sourcePath="${comentario}">
+                        <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
+                      </Subbinding>
+                      <Subbinding sourcePath="${aprovado}">
+                        <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Boolean.class"/>
+                      </Subbinding>
+                    </BindingProperty>
                   </BindingProperties>
                 </Component>
               </SubComponents>
@@ -147,7 +163,7 @@
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
           <BindingProperties>
-            <BindingProperty name="text" source="tabela" sourcePath="${selectedElement.linguagem}" target="NotaOrg" targetPath="text" updateStrategy="0" immediately="false">
+            <BindingProperty name="text" source="tabela" sourcePath="${selectedElement.organizacao}" target="NotaOrg" targetPath="text" updateStrategy="0" immediately="false">
               <BindingParameter name="javax.swing.binding.ParameterKeys.TEXT_CHANGE_STRATEGY" value="javax.swing.binding.TextChangeStrategy.ON_TYPE"/>
             </BindingProperty>
           </BindingProperties>
@@ -157,7 +173,7 @@
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
           <BindingProperties>
-            <BindingProperty name="text" source="tabela" sourcePath="${selectedElement.qualidade}" target="NotaLing" targetPath="text" updateStrategy="0" immediately="false">
+            <BindingProperty name="text" source="tabela" sourcePath="${selectedElement.linguagem}" target="NotaLing" targetPath="text" updateStrategy="0" immediately="false">
               <BindingParameter name="javax.swing.binding.ParameterKeys.TEXT_CHANGE_STRATEGY" value="javax.swing.binding.TextChangeStrategy.ON_TYPE"/>
             </BindingProperty>
           </BindingProperties>
@@ -170,7 +186,7 @@
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
           <BindingProperties>
-            <BindingProperty name="text" source="tabela" sourcePath="${selectedElement.organizacao}" target="NotaQua" targetPath="text" updateStrategy="0" immediately="false">
+            <BindingProperty name="text" source="tabela" sourcePath="${selectedElement.qualidade}" target="NotaQua" targetPath="text" updateStrategy="0" immediately="false">
               <BindingParameter name="javax.swing.binding.ParameterKeys.TEXT_CHANGE_STRATEGY" value="javax.swing.binding.TextChangeStrategy.ON_TYPE"/>
             </BindingProperty>
           </BindingProperties>
