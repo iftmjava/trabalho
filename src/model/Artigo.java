@@ -15,28 +15,26 @@ public class Artigo {
     @DatabaseField
     private String Resumo;
     @DatabaseField(generatedId = true, allowGeneratedIdInsert = true)
-    private static int id;
+    private int id;
     @DatabaseField(foreign = true)
     private Usuarios avaliador;
     @DatabaseField
-    private String comentario;
+    private String comentario = "";
     @DatabaseField
-    private boolean aprovado = false;
+    private String aprovado;
     @DatabaseField(foreign = true)
     public Evento event;
     @DatabaseField
-    private float linguagem = 0;
+    private float linguagem;
     @DatabaseField
-    private float qualidade = 0;
+    private float qualidade;
     @DatabaseField
-    private float organizacao = 0;
+    private float organizacao;
     @DatabaseField
-    private int numAvaliadores = 0;
+    private int numAvaliadores;
 
-
-   // public static final Usuarios tartge = new Usuarios();
+    // public static final Usuarios tartge = new Usuarios();
     //Confere = avaliador;
-
     public String getNome() {
         return nome;
     }
@@ -69,12 +67,12 @@ public class Artigo {
         this.Resumo = Resumo;
     }
 
-    public static int getId() {
+    public int getId() {
         return id;
     }
 
-    public static void setId(int id) {
-        Artigo.id = id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Usuarios getAvaliador() {
@@ -90,14 +88,14 @@ public class Artigo {
     }
 
     public void setComentario(String comentario) {
-        this.comentario = this.comentario + "\n" + comentario;
+        this.comentario = this.comentario + comentario;
     }
 
-    public boolean getAprovado() {
+    public String getAprovado() {
         return aprovado;
     }
 
-    public void setAprovado(boolean aprovado) {
+    public void setAprovado(String aprovado) {
         this.aprovado = aprovado;
     }
 
@@ -140,7 +138,5 @@ public class Artigo {
     public void setNumAvaliadores(int numAvaliadores) {
         this.numAvaliadores = numAvaliadores;
     }
-
-    
 
 }

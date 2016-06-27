@@ -277,7 +277,7 @@ public class AvaliarArtigo extends javax.swing.JDialog {
                     objeto.setOrganizacao((Integer.parseInt((String) NotaOrg.getSelectedItem()) + objeto.getOrganizacao()) / 2);
                     objeto.setQualidade((Integer.parseInt((String) NotaQua.getSelectedItem()) + objeto.getQualidade()) / 2);
                 }
-                objeto.setComentario(Comente.getText());
+                objeto.setComentario(Comente.getText() + "; ");
                 objeto.setNumAvaliadores(objeto.getNumAvaliadores() + 1);
                 objeto.setAvaliador(null);
                 try {

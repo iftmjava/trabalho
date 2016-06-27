@@ -217,7 +217,7 @@ public class CadastrarArtigo extends javax.swing.JDialog {
             artigo.setAutor(x);
             artigo.setArea(AreaTextField.getText());
             artigo.setResumo(TextareaResumo.getText());
-            artigo.setAprovado(false);
+            artigo.setAprovado(null);
             artigo.setAvaliador(null);
             artigo.setComentario("");
             artigo.setLinguagem(0);

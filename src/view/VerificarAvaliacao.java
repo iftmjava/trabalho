@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import model.Artigo;
 import modelDB.ArtigoDAO;
 
@@ -27,10 +28,9 @@ public class VerificarAvaliacao extends javax.swing.JDialog {
         initComponents();
         atualizaTabela();
     }
-    
-    
-         private void atualizaTabela() throws SQLException {
-         ArtigoDAO parameter = new ArtigoDAO();
+
+    private void atualizaTabela() throws SQLException {
+        ArtigoDAO parameter = new ArtigoDAO();
         list1.clear();
         List<Artigo> objetos = parameter.listar();
         list1.addAll(objetos);
@@ -39,7 +39,7 @@ public class VerificarAvaliacao extends javax.swing.JDialog {
             Tabela.setRowSelectionInterval(linha, linha); //linhas selecioandas
             Tabela.scrollRectToVisible(Tabela.getCellRect(linha, linha, true)); //arruma o scroll
         }
-        
+
     }
 
     /**
@@ -207,34 +207,57 @@ public class VerificarAvaliacao extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AprovadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AprovadoActionPerformed
-    ArtigoDAO dao = new ArtigoDAO();
-    Artigo temp = new Artigo();
-    
-    int LinhaSelecionada = Tabela.getSelectedRow();
-    temp = (Artigo) list1.get(LinhaSelecionada);
-    
-    String str1 = String.valueOf(temp.getLinguagem());
-    NotaLing.setText(str1);
-    String str2 =  String.valueOf(temp.getOrganizacao());
-    NotaOrg.setText(str2);
-    String str3 =String.valueOf(temp.getQualidade());
-    NotaQua.setText(str3);
-    
-    
-    
-    temp.setAprovado(true);
-    dispose();
+        ArtigoDAO dao = new ArtigoDAO();
+        Artigo temp = new Artigo();
+        int LinhaSelecionada = Tabela.getSelectedRow();
+        temp = (Artigo) list1.get(LinhaSelecionada);
+        if (temp.getNumAvaliadores() < 2 || temp.getAprovado() != null) {
+            JOptionPane.showMessageDialog(null, "Não é possivel aprovar pois o artigo não atingiu o número minimo de avaliadores");
+        } else {
+            String str1 = String.valueOf(temp.getLinguagem());
+            NotaLing.setText(str1);
+            String str2 = String.valueOf(temp.getOrganizacao());
+            NotaOrg.setText(str2);
+            String str3 = String.valueOf(temp.getQualidade());
+            NotaQua.setText(str3);
+            temp.setAprovado("aprovado");
+        }
+
+        
+        dispose();
         try {
             dao.alterar(temp);
         } catch (SQLException ex) {
             Logger.getLogger(VerificarAvaliacao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
+
     }//GEN-LAST:event_AprovadoActionPerformed
 
     private void ReprovadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReprovadoActionPerformed
-       dispose();
+        ArtigoDAO dao = new ArtigoDAO();
+        Artigo temp = new Artigo();
+        int LinhaSelecionada = Tabela.getSelectedRow();
+        temp = (Artigo) list1.get(LinhaSelecionada);
+        if (temp.getNumAvaliadores() < 2 || temp.getAprovado() != null) {
+            JOptionPane.showMessageDialog(null, "Não é possivel reprovar pois o artigo não atingiu o número minimo de avaliadores");
+        } else {
+            String str1 = String.valueOf(temp.getLinguagem());
+            NotaLing.setText(str1);
+            String str2 = String.valueOf(temp.getOrganizacao());
+            NotaOrg.setText(str2);
+            String str3 = String.valueOf(temp.getQualidade());
+            NotaQua.setText(str3);
+            temp.setAprovado("reprovado");
+        }
+
+        
+        dispose();
+        try {
+            dao.alterar(temp);
+        } catch (SQLException ex) {
+            Logger.getLogger(VerificarAvaliacao.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ReprovadoActionPerformed
 
     /**

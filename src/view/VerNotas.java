@@ -76,7 +76,7 @@ public class VerNotas extends javax.swing.JDialog {
         columnBinding.setColumnClass(String.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${aprovado}"));
         columnBinding.setColumnName("Aprovado");
-        columnBinding.setColumnClass(Boolean.class);
+        columnBinding.setColumnClass(String.class);
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();
 

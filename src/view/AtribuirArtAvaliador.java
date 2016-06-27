@@ -189,7 +189,7 @@ public class AtribuirArtAvaliador extends javax.swing.JDialog {
         art = listaArt.get(LinhaSelecionada);
         int LinhaSelecionada2 = TabelaAva.getSelectedRow();
         user = listaAva.get(LinhaSelecionada2);
-        if (art.getAprovado() == false) {
+        if (art.getAprovado() == null) {
             if (user.getTipo().equals("Avaliador")) {
                 art.setAvaliador(user);
                 try {
@@ -202,7 +202,7 @@ public class AtribuirArtAvaliador extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "Tipo nao pode avaliar");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "O artigo já foi aprovado, não é possivel adicionar avaliadores para o artigo");
+            JOptionPane.showMessageDialog(null, "O artigo já foi aprovado ou reprovado, não é possivel adicionar avaliadores para o artigo");
         }
 
 

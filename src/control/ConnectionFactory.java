@@ -8,7 +8,7 @@ public class ConnectionFactory {
     
     public Connection getConnection() {
         try {
-            return DriverManager.getConnection("jdbc:sqlite:test.db");
+            return DriverManager.getConnection("jdbc:sqlite:banco.db");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

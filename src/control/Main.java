@@ -17,7 +17,7 @@ public class Main {
         TableUtils.createTable(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Artigo.class);
         TableUtils.createTable(new JdbcConnectionSource("jdbc:sqlite:banco.db"), Evento.class);
         */
-      
+
     }
 
     public static void main(String[] args) throws SQLException {
