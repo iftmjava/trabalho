@@ -29,6 +29,7 @@ public class ExcluirContaAutor extends javax.swing.JDialog {
     public ExcluirContaAutor(java.awt.Frame parent, boolean modal, Usuarios temp) {
         super(parent, modal);
         initComponents();
+        x = temp;
     }
     UsuarioDAO Udao = new UsuarioDAO();
 
@@ -125,29 +126,29 @@ public class ExcluirContaAutor extends javax.swing.JDialog {
         } catch (SQLException ex) {
             Logger.getLogger(ExcluirContaAutor.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        int i = 0;
-        Artigo artigo = new Artigo();
-        artigo = artigos.get(i);
-        while (artigo != null) {
-            if (artigo.getAutor().equals(x)) {
+        Artigo temp2 = new Artigo();
+        
+        temp2 = null;
+        for (int i = 0;i<artigos.size();i++){
+            if(artigos.get(i) != null){
+            temp2 = artigos.get(i);
+            if(temp2 != null && temp2.getAutor().equals(x)){
                 try {
-                    dao.delete(artigo);
+                    dao.delete(temp2);
                 } catch (SQLException ex) {
                     Logger.getLogger(ExcluirContaAutor.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            i++;
-            artigos.get(i);
+            
         }
-        
+        }
         try {
             
             Udao.delete(x);
         } catch (SQLException ex) {
             Logger.getLogger(ExcluirContaAutor.class.getName()).log(Level.SEVERE, null, ex);
         }
-             dispose();
+            dispose();
             Menu2 menu = new Menu2();
             menu.setVisible(true);
             menu.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -159,7 +160,12 @@ public class ExcluirContaAutor extends javax.swing.JDialog {
     }//GEN-LAST:event_YesActionPerformed
 
     private void NOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NOActionPerformed
-        dispose();        // TODO add your handling code here:
+                dispose();
+                MenuAutor autor = new MenuAutor(x);
+                autor.setSize(500, 500);
+                autor.setDefaultCloseOperation(EXIT_ON_CLOSE);
+                autor.setLocationRelativeTo(null);
+                autor.setVisible(true);
     }//GEN-LAST:event_NOActionPerformed
 
 

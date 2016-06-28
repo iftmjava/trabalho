@@ -32,13 +32,11 @@ public class ExcluirEvento extends javax.swing.JDialog {
         atualizaTabela();
     }
 
-    
-    
     private void atualizaTabela() throws SQLException {
         EventoDAO parameter = new EventoDAO();
         list1.clear();
         List<Evento> objetos = parameter.listar();
-        
+
         list1.addAll(objetos);
         int linha = list1.size() - 1;
         if (linha >= 0) { //tem elementos na lista
@@ -46,6 +44,7 @@ public class ExcluirEvento extends javax.swing.JDialog {
             tabela.scrollRectToVisible(tabela.getCellRect(linha, linha, true)); //arruma o scroll
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -144,35 +143,38 @@ public class ExcluirEvento extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirActionPerformed
-        ArtigoDAO dao = new ArtigoDAO();
-        Artigo artigo = new Artigo();
+
         EventoDAO parameter = new EventoDAO();
         Evento evento = new Evento();
-        int i = 0;
-            List<Artigo> artigos = null;
+        ArtigoDAO dao = new ArtigoDAO();
+        List<Artigo> artigos = null;
         try {
             artigos = dao.listar();
         } catch (SQLException ex) {
-            Logger.getLogger(ExcluirEvento.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ExcluirContaAutor.class.getName()).log(Level.SEVERE, null, ex);
         }
-        artigo = artigos.get(i);
-        
+        Artigo temp2 = new Artigo();
+
         int LinhaSelecionada = tabela.getSelectedRow();
-        evento = list1.get(LinhaSelecionada);       
+        evento = list1.get(LinhaSelecionada);
         LocalDate dataevento = LocalDate.ofEpochDay(evento.getData_limite());;
         LocalDate hoje = LocalDate.now();
-        if(hoje.isAfter(dataevento)){
-            
+        if (hoje.isAfter(dataevento)) {
+            temp2 = null;
+            for (int i = 0; i < artigos.size(); i++) {
+                if (artigos.get(i) != null) {
+                    temp2 = artigos.get(i);
+                    if (temp2 != null && temp2.getEvent().equals(evento)) {
+                        try {
+                            dao.delete(temp2);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(ExcluirContaAutor.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+
+                }
+            }
             try {
-                while(artigo != null){
-                if(artigo.getEvent().equals(evento)){
-                    dao.delete(artigo);
-                    
-                }
-                i++;
-                artigo = artigos.get(i);
-                }
-                
                 parameter.delete(evento);
             } catch (SQLException ex) {
                 Logger.getLogger(ExcluirEvento.class.getName()).log(Level.SEVERE, null, ex);
@@ -183,10 +185,9 @@ public class ExcluirEvento extends javax.swing.JDialog {
                 Logger.getLogger(ExcluirEvento.class.getName()).log(Level.SEVERE, null, ex);
             }
             dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Impossivel excluir evento, evento ainda em andamento");
         }
-        else{
-            JOptionPane.showMessageDialog(null,"Impossivel excluir evento, evento ainda em andamento");
-        }        
     }//GEN-LAST:event_excluirActionPerformed
 
     /**

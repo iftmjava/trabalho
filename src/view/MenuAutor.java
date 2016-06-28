@@ -175,7 +175,8 @@ public class MenuAutor extends javax.swing.JFrame {
     }//GEN-LAST:event_AlterarActionPerformed
 
     private void ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirActionPerformed
-      ExcluirContaAutor cadastro = new  ExcluirContaAutor(this, true, x);
+        dispose();
+        ExcluirContaAutor cadastro = new  ExcluirContaAutor(this, true, x);
         cadastro.setSize(605,400);
         cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         cadastro.setLocationRelativeTo(null);

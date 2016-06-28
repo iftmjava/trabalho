@@ -27,6 +27,7 @@ public class ExcluirContaAvaliador extends javax.swing.JDialog {
     public ExcluirContaAvaliador(java.awt.Frame parent, boolean modal, Usuarios temp) {
         super(parent, modal);
         initComponents();
+        x = temp;
     }
     UsuarioDAO Udao = new UsuarioDAO();
 
@@ -116,7 +117,7 @@ public class ExcluirContaAvaliador extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void YesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_YesActionPerformed
-        ArtigoDAO dao = new ArtigoDAO();
+   /*     ArtigoDAO dao = new ArtigoDAO();
         List<Artigo> artigos = null;
         try {
             artigos = dao.listar();
@@ -139,8 +140,33 @@ public class ExcluirContaAvaliador extends javax.swing.JDialog {
             }
             i++;
             artigos.get(i);
-        }
+        }*/
 
+   ArtigoDAO dao = new ArtigoDAO();
+        List<Artigo> artigos = null;
+        try {
+            artigos = dao.listar();
+        } catch (SQLException ex) {
+            Logger.getLogger(ExcluirContaAutor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Artigo temp2 = new Artigo();
+        
+        temp2 = null;
+        for (int i = 0;i<artigos.size();i++){
+            if(artigos.get(i) != null){
+            temp2 = artigos.get(i);
+            if(temp2 != null && temp2.getAutor().equals(x)){
+                temp2.setAvaliador(null);
+                temp2.setNumAvaliadores(-1);
+                try {
+                    dao.alterar(temp2);
+                } catch (SQLException ex) {
+                    Logger.getLogger(ExcluirContaAutor.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+        }
+        }
         try {
 
             Udao.delete(x);

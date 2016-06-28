@@ -47,12 +47,10 @@
                   <EmptySpace pref="150" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Component id="Excluir" pref="200" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="Alterar" max="32767" attributes="0"/>
-                          <Component id="BotaoNotas" alignment="0" max="32767" attributes="0"/>
-                          <Component id="BotaoLogoutAutor" alignment="0" max="32767" attributes="0"/>
-                          <Component id="BotaoEnviarArtigo" alignment="0" pref="200" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="Alterar" max="32767" attributes="0"/>
+                      <Component id="BotaoNotas" alignment="0" max="32767" attributes="0"/>
+                      <Component id="BotaoLogoutAutor" alignment="0" max="32767" attributes="0"/>
+                      <Component id="BotaoEnviarArtigo" alignment="0" pref="200" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="150" max="32767" attributes="0"/>
               </Group>

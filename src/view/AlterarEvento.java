@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import model.Evento;
 import modelDB.EventoDAO;
 
@@ -249,14 +250,18 @@ public class AlterarEvento extends javax.swing.JDialog {
 
     private void teste(){
         Evento evento = new Evento();
-       
+        
         int LinhaSelecionada = table.getSelectedRow();
-        evento = list1.get(LinhaSelecionada);         
+        if(LinhaSelecionada != -1){       
+        evento = list1.get(LinhaSelecionada); 
+        }  
+        if(evento != null){
         LocalDate parametro = null;
         String x;
         parametro = parametro.ofEpochDay(evento.getData_limite());
         x = this.trataData2(parametro);
         DatafTextField.setText(x);
+        }
     }
     
     
@@ -268,6 +273,8 @@ public class AlterarEvento extends javax.swing.JDialog {
         evento = list1.get(LinhaSelecionada);         
         LocalDate parametro = null;
         String x;
+        if(LinhaSelecionada != -1){
+            if(evento != null){
         evento.setNome(NomeTextField.getText());
         
       //  parametro = parametro.ofEpochDay(evento.getData_limite());
@@ -286,6 +293,16 @@ public class AlterarEvento extends javax.swing.JDialog {
             Logger.getLogger(AlterarEvento.class.getName()).log(Level.SEVERE, null, ex);
         }
         dispose();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Impossivel alterar evento sem existir nenhum evento");
+        }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Impossivel alterar evento sem existir nenhum evento");
+            dispose();
+        }
+        
     }//GEN-LAST:event_BotaoSalvarEventoActionPerformed
 
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
