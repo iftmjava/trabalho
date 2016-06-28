@@ -37,6 +37,8 @@ public class MenuChair extends javax.swing.JFrame {
         BotaoAtribuirArtigo = new javax.swing.JButton();
         BotaoCriarEvento = new javax.swing.JButton();
         BotaoPromoverAutor = new javax.swing.JButton();
+        ExcluirEvento = new javax.swing.JButton();
+        AlterarEvento = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu CHAIR");
@@ -78,6 +80,20 @@ public class MenuChair extends javax.swing.JFrame {
             }
         });
 
+        ExcluirEvento.setText("Excluir Evento");
+        ExcluirEvento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExcluirEventoActionPerformed(evt);
+            }
+        });
+
+        AlterarEvento.setText("Alterar Evento");
+        AlterarEvento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AlterarEventoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelPrincipalChairLayout = new javax.swing.GroupLayout(PanelPrincipalChair);
         PanelPrincipalChair.setLayout(PanelPrincipalChairLayout);
         PanelPrincipalChairLayout.setHorizontalGroup(
@@ -85,13 +101,15 @@ public class MenuChair extends javax.swing.JFrame {
             .addGroup(PanelPrincipalChairLayout.createSequentialGroup()
                 .addGap(150, 150, 150)
                 .addGroup(PanelPrincipalChairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BotaoLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelPrincipalChairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(AlterarEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ExcluirEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BotaoVerifiAvali, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BotaoCriarEvento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BotaoLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BotaoAtribuirArtigo, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
-                    .addComponent(BotaoPromoverAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(150, Short.MAX_VALUE))
+                        .addComponent(BotaoAtribuirArtigo, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                        .addComponent(BotaoPromoverAutor, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))
+                .addContainerGap(173, Short.MAX_VALUE))
         );
         PanelPrincipalChairLayout.setVerticalGroup(
             PanelPrincipalChairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,10 +121,14 @@ public class MenuChair extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BotaoAtribuirArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BotaoCriarEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BotaoCriarEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ExcluirEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AlterarEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BotaoLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -180,6 +202,32 @@ public class MenuChair extends javax.swing.JFrame {
         
     }//GEN-LAST:event_BotaoAtribuirArtigoActionPerformed
 
+    private void ExcluirEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirEventoActionPerformed
+        ExcluirEvento tela = null;
+        try {
+            tela = new ExcluirEvento(this, true);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuChair.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tela.setSize(750,300);
+        tela.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        tela.setLocationRelativeTo(null);
+        tela.setVisible(true);
+    }//GEN-LAST:event_ExcluirEventoActionPerformed
+
+    private void AlterarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarEventoActionPerformed
+        AlterarEvento tela = null;
+        try {
+            tela = new AlterarEvento(this, true);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuChair.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tela.setSize(770,630);
+        tela.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        tela.setLocationRelativeTo(null);
+        tela.setVisible(true);
+    }//GEN-LAST:event_AlterarEventoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -220,11 +268,13 @@ public class MenuChair extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AlterarEvento;
     private javax.swing.JButton BotaoAtribuirArtigo;
     private javax.swing.JButton BotaoCriarEvento;
     private javax.swing.JButton BotaoLogout;
     private javax.swing.JButton BotaoPromoverAutor;
     private javax.swing.JButton BotaoVerifiAvali;
+    private javax.swing.JButton ExcluirEvento;
     private javax.swing.JPanel PanelPrincipalChair;
     // End of variables declaration//GEN-END:variables
 }

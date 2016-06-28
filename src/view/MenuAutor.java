@@ -39,6 +39,8 @@ public class MenuAutor extends javax.swing.JFrame {
         BotaoNotas = new javax.swing.JButton();
         BotaoLogoutAutor = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        Alterar = new javax.swing.JButton();
+        Excluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,21 +67,38 @@ public class MenuAutor extends javax.swing.JFrame {
 
         jLabel1.setText("Menu do Autor");
 
+        Alterar.setText("Alterar Conta");
+        Alterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AlterarActionPerformed(evt);
+            }
+        });
+
+        Excluir.setText("Exluir Conta");
+        Excluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExcluirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelPrincipalAutorLayout = new javax.swing.GroupLayout(PanelPrincipalAutor);
         PanelPrincipalAutor.setLayout(PanelPrincipalAutorLayout);
         PanelPrincipalAutorLayout.setHorizontalGroup(
             PanelPrincipalAutorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPrincipalAutorLayout.createSequentialGroup()
-                .addContainerGap(150, Short.MAX_VALUE)
-                .addGroup(PanelPrincipalAutorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BotaoNotas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BotaoLogoutAutor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BotaoEnviarArtigo, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
-                .addContainerGap(150, Short.MAX_VALUE))
-            .addGroup(PanelPrincipalAutorLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(PanelPrincipalAutorLayout.createSequentialGroup()
+                .addContainerGap(150, Short.MAX_VALUE)
+                .addGroup(PanelPrincipalAutorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(Excluir, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addGroup(PanelPrincipalAutorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(Alterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BotaoNotas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BotaoLogoutAutor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BotaoEnviarArtigo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
         PanelPrincipalAutorLayout.setVerticalGroup(
             PanelPrincipalAutorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,8 +110,12 @@ public class MenuAutor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BotaoNotas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Alterar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BotaoLogoutAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -143,15 +166,33 @@ public class MenuAutor extends javax.swing.JFrame {
         menu.setLocationRelativeTo(null);
     }//GEN-LAST:event_BotaoLogoutAutorActionPerformed
 
+    private void AlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarActionPerformed
+        AlterarConta cadastro = new AlterarConta(this, true, x);
+        cadastro.setSize(605,400);
+        cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        cadastro.setLocationRelativeTo(null);
+        cadastro.setVisible(true);
+    }//GEN-LAST:event_AlterarActionPerformed
+
+    private void ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirActionPerformed
+      ExcluirContaAutor cadastro = new  ExcluirContaAutor(this, true, x);
+        cadastro.setSize(605,400);
+        cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        cadastro.setLocationRelativeTo(null);
+        cadastro.setVisible(true);
+    }//GEN-LAST:event_ExcluirActionPerformed
+
     /**
      * @param args the command line arguments
      */
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Alterar;
     private javax.swing.JButton BotaoEnviarArtigo;
     private javax.swing.JButton BotaoLogoutAutor;
     private javax.swing.JButton BotaoNotas;
+    private javax.swing.JButton Excluir;
     private javax.swing.JPanel PanelPrincipalAutor;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

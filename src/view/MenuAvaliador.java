@@ -39,6 +39,8 @@ public class MenuAvaliador extends javax.swing.JFrame {
         PanelPrincipalAvaliador = new javax.swing.JPanel();
         BotaoAvaliarArtigos = new javax.swing.JButton();
         BotaoLogoutAvaliador = new javax.swing.JButton();
+        BotaoAlterar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Avaliador");
@@ -59,15 +61,37 @@ public class MenuAvaliador extends javax.swing.JFrame {
             }
         });
 
+        BotaoAlterar.setText("Alterar Conta");
+        BotaoAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoAlterarActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Excluir Conta");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelPrincipalAvaliadorLayout = new javax.swing.GroupLayout(PanelPrincipalAvaliador);
         PanelPrincipalAvaliador.setLayout(PanelPrincipalAvaliadorLayout);
         PanelPrincipalAvaliadorLayout.setHorizontalGroup(
             PanelPrincipalAvaliadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPrincipalAvaliadorLayout.createSequentialGroup()
-                .addGap(150, 150, 150)
+                .addGap(149, 149, 149)
                 .addGroup(PanelPrincipalAvaliadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BotaoLogoutAvaliador, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotaoAvaliarArtigos, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelPrincipalAvaliadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(BotaoAvaliarArtigos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                        .addGroup(PanelPrincipalAvaliadorLayout.createSequentialGroup()
+                            .addGap(1, 1, 1)
+                            .addGroup(PanelPrincipalAvaliadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(BotaoAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(PanelPrincipalAvaliadorLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(BotaoLogoutAvaliador, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(149, Short.MAX_VALUE))
         );
         PanelPrincipalAvaliadorLayout.setVerticalGroup(
@@ -76,8 +100,12 @@ public class MenuAvaliador extends javax.swing.JFrame {
                 .addGap(113, 113, 113)
                 .addComponent(BotaoAvaliarArtigos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BotaoAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BotaoLogoutAvaliador, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(281, Short.MAX_VALUE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -119,14 +147,33 @@ public class MenuAvaliador extends javax.swing.JFrame {
         menu.setLocationRelativeTo(null);
     }//GEN-LAST:event_BotaoLogoutAvaliadorActionPerformed
 
+    private void BotaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAlterarActionPerformed
+        AlterarConta cadastro = new AlterarConta(this, true, x);
+        
+        cadastro.setSize(605,400);
+        cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        cadastro.setLocationRelativeTo(null);
+        cadastro.setVisible(true);
+    }//GEN-LAST:event_BotaoAlterarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ExcluirContaAvaliador cadastro = new ExcluirContaAvaliador(this, true, x);      
+        cadastro.setSize(605,400);
+        cadastro.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        cadastro.setLocationRelativeTo(null);
+        cadastro.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotaoAlterar;
     private javax.swing.JButton BotaoAvaliarArtigos;
     private javax.swing.JButton BotaoLogoutAvaliador;
     private javax.swing.JPanel PanelPrincipalAvaliador;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

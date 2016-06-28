@@ -201,7 +201,7 @@ public class CadastrarArtigo extends javax.swing.JDialog {
         EventoDAO parameter = new EventoDAO();
         Evento evento = new Evento();
         int LinhaSelecionada = table.getSelectedRow();
-        evento = list1.get(LinhaSelecionada);
+        evento = list1.get(LinhaSelecionada);       
         LocalDate dataevento = LocalDate.ofEpochDay(evento.getData_limite());;
         LocalDate hoje = LocalDate.now();
         if (hoje.isAfter(dataevento)) {
