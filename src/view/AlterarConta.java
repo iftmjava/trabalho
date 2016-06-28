@@ -157,7 +157,7 @@ public class AlterarConta extends javax.swing.JDialog {
     }
     private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
         UsuarioDAO dao = new UsuarioDAO();
-        copular();
+        
         
         
         x.setNome(NomeText.getText());
